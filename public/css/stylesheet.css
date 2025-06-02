@@ -10,4 +10,36 @@ body {
 
 hr {
     color: var(--text-colour);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/bg.jpg);
+    background-size: cover; /* or 100vw*/
+    position: relative;
+}
+
+.gradient {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, white, transparent);
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    margin-left: 50px;
+    margin-top: 50px;
+    z-index: 99;
+}
+
+p {
+    margin-left: 50px;
 }
