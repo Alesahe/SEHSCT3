@@ -1,0 +1,13 @@
+body {
+    margin: auto;
+    font-family: "Nunito";
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+    /* font-size: 18px;
+    width: 100vw;
+    height: 100vh; */
+}
+
+hr {
+    color: var(--text-colour);
+}
