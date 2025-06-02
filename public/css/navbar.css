@@ -7,12 +7,16 @@
 }
 
 .topnav a {
-  float: left;
+  float:left;
   display: block;
   color: var(--text-colour);
   text-align: center;
   padding: 14px;
   text-decoration: none;
+}
+
+#loginButton {
+  float: right;
 }
 
 .topnav a:hover {

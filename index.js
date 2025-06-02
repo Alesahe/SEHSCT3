@@ -16,6 +16,9 @@ app.get("/gallery", function (req, res) {
 app.get("/contact", function (req, res) {
   res.sendFile(path.join(__dirname, "public/html/contact.html"));
 });
+app.get("/login", function (req, res) {
+  res.sendFile(path.join(__dirname, "public/html/login.html"));
+});
 
 //post requests
 
