@@ -8,6 +8,12 @@ body {
     height: 100vh; */
 }
 
+.titleText {
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 hr {
     color: var(--text-colour);
     margin-top: 0px;
@@ -26,24 +32,20 @@ hr {
 .gradient {
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, var(--gradient-colour), transparent);
+    background-image: linear-gradient(to right, var(--blue), transparent);
     opacity: 1;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-h1 {
-    margin-left: 50px;
-    margin-top: 50px;
-    z-index: 99;
-}
-
-p {
+.left{
     margin-left: 50px;
 }
 
-.centre{
+.centreBox{
     justify-content: center;
+    text-align: center;
     /* align-items: center; */
+    /* font-size: 20px; */
 }

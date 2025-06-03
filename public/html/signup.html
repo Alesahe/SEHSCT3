@@ -18,40 +18,38 @@
         <a href="/">Home</a>
         <a href="families">Families</a>
         <a href="gallery">Gallery</a>
-        <a class="active" href="contact">Contact</a>
+        <a href="contact">Contact</a>
 
         <box-icon name="menu" class="icon" aria-label="burger menu" style="color: var(--text-colour);" onclick="resizeNavbar()"></box-icon>
         <a href="login" id="loginButton">Login</a>
     </div>
     <hr>
 
-    <div class="centreBox titleText" style="background-color: var(--red)";>
-            <h1> Get in Touch </h1>
-    </div>
-    <div class="row">
-        <div class="column" style="background-color:var(--green);">
-            <div class="centreBox">
-                <h1><box-icon name="phone" style="color: var(--text-colour);"></box-icon></h2>
-                <h3> Phone </h3>
-                <p>+61 433 431 810</p>
-            </div>
-        </div>
-        <div class="column" style="background-color:var(--yellow);">
-            <div class="centreBox">
-                <h1><box-icon name="envelope" style="color: var(--text-colour);"></box-icon></h2>
-                <h3> Email </h3>
-                <p>[insert email].</p>
-            </div>
-        </div>
-        <div class="column" style="background-color:var(--blue);">
-            <div class="centreBox">
-                <h1>Column 3</h2>
-                <h3> [] </h3>
-                <p>Some text..</p>
-            </div>
-        </div>
-    </div>
+    <!-- ;alj kfldsajflk;dsj -->
+     <div class="wrapper">
+        <h1> Signup </h1>
+        <form>
+            <div>
+                <input required type="text" name="firstname" id="firstnameInput" placeholder="Firstname">
 
+            </div>
+            <div>
+                <input required type="text" name="lastname" id="lastnameInput" placeholder="Lastname">
+
+            </div>
+            <div>
+                <input required type="email" name="email" id="emailInput" placeholder="Email">
+            </div>
+            <div>
+                <input required type="password" name="password" id="passwordInput" placeholder="Password">
+            </div>
+            <div>
+                <input required type="password" name="repeatPassword" id="repeatPasswordInput" placeholder="Repeat Password">
+            </div>
+
+            <button type="submit"> Submit </button>
+        </form>
+     </div>
 
 </body>
 </html>

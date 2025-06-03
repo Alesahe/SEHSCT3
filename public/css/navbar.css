@@ -20,11 +20,11 @@
 }
 
 .topnav a:hover {
-    background-color: var(--navbar-colour);
+    background-color: var(--yellow);
 }
 
 .topnav a.active {
-    background-color: var(--navbar-colour);
+    background-color: var(--yellow);
 }
 
 .topnav .icon {

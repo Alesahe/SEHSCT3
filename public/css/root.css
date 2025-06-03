@@ -3,7 +3,10 @@
 :root {
     --background-colour: #F4F4F4;
     --text-colour: #2C2C2C;
-    --highlight-colour: #e7cef5;
-    --navbar-colour: #ffeb6b;
-    --gradient-colour: #a8d8ff;
+    --red:#faaaaa;
+    --green: #A7E4B7;
+    /* --yellow: #ffeb6b; */
+    --yellow: #FDF0AC;
+    --blue: #a8d8ff;
+    --purple: #e7cef5;
 }  

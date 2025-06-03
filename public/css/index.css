@@ -3,5 +3,15 @@
 }
 
 #fees {
-    background-color: #A7E4B7;
+    background-color: var(--green);
+}
+
+h1 {
+    margin-left: 50px;
+    margin-top: 50px;
+    z-index: 99;
+}
+
+p {
+    margin-left: 50px;
 }
