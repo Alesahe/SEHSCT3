@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Vivid Hills FDC </title>
+    <link rel="icon" href="../favicon.png" type="image/icon type">
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/gallery.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/gallery.js"></script>
+</head>
+<body>
+    <div id="navbar" class="topnav">
+        <a href="/">Home</a>
+        <a href="families">Families</a>
+        <a href="gallery">Gallery</a>
+        <a href="contact">Contact</a>
+
+        <box-icon name="menu" class="icon" aria-label="burger menu" style="color: var(--text-colour);" onclick="resizeNavbar()"></box-icon>
+        <a href="login" id="loginButton">Login</a>
+    </div>
+    <hr>
+
+    <h1> Photo Gallery </h1>
+
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 4</div>
+            <img src="../userUploads/images/p1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 4</div>
+            <img src="../userUploads/images/p2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 4</div>
+            <img src="../userUploads/images/p3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 4</div>
+            <img src="../userUploads/images/p4.jpg" style="width:100%">
+        </div>
+            
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="../userUploads/images/p1.jpg" style="width:100%" onclick="currentSlide(1)" alt="[]">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="../userUploads/images/p2.jpg" style="width:100%" onclick="currentSlide(2)" alt="[]">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="../userUploads/images/p3.jpg" style="width:100%" onclick="currentSlide(3)" alt="[]">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="../userUploads/images/p4.jpg" style="width:100%" onclick="currentSlide(4)" alt="[]">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
