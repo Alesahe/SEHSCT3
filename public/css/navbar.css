@@ -19,12 +19,44 @@
   float: right;
 }
 
-.topnav a:hover {
+#home:hover {
+    background-color: var(--red);
+}
+
+#families:hover {
     background-color: var(--yellow);
 }
 
-.topnav a.active {
+#gallery:hover {
+    background-color: var(--green);
+}
+
+#contact:hover {
+    background-color: var(--blue);
+}
+
+#loginButton:hover {
+    background-color: var(--purple);
+}
+
+#home.active {
+    background-color: var(--red);
+}
+
+#families.active {
     background-color: var(--yellow);
+}
+
+#gallery.active {
+    background-color: var(--green);
+}
+
+#contact.active {
+    background-color: var(--blue);
+}
+
+#loginButton.active {
+    background-color: var(--purple);
 }
 
 .topnav .icon {
