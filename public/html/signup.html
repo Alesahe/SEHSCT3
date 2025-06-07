@@ -20,7 +20,12 @@
         <a href="gallery" id="gallery">Gallery</a>
         <a href="contact" id="contact">Contact</a>
 
-        <box-icon name="menu" class="icon" aria-label="burger menu" style="color: var(--text-colour);" onclick="resizeNavbar()"></box-icon>
+        <a href="javascript:void(0);" id="menuContainer" class="icon" onclick="resizeNavbar()">
+            <box-icon name="menu" id="menu" aria-label="burger menu"></box-icon>
+        </a>
+
+        <a href="login" id="loginButton">Login</a>
+        <!-- <box-icon name="menu" class="icon" aria-label="burger menu" style="color: var(--text-colour);" onclick="resizeNavbar()"></box-icon> -->
     </div>
     <hr>
 
@@ -32,36 +37,36 @@
                     <label for="firstnameInput"> 
                         <box-icon name="user-circle" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
-                    <input required type="text" name="firstname" id="firstnameInput" placeholder="Firstname">
+                    <input required pattern="[A-Za-z]{3,30}" title="3-30 letter characters are accepted" type="text" name="firstname" id="firstnameInput" placeholder="Firstname">
                 </div>
                 <!-- <br> -->
                 <div class="inputField">
                     <label for="lastnameInput">
                         <box-icon name="user-circle" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
-                    <input required type="text" name="lastname" id="lastnameInput" placeholder="Lastname">
+                    <input required pattern="[A-Za-z]{3,30}" title="3-30 letter characters are accepted" type="text" name="lastname" id="lastnameInput" placeholder="Lastname">
                 </div>
                 <!-- <br> -->
                 <div class="inputField">
                     <label for="emailInput">
                         <box-icon name="envelope" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
-                    <input required type="email" name="email" id="emailInput" placeholder="Email">
+                    <input required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="only valid email addresses are accepted" type="email" name="email" id="emailInput" placeholder="Email">
                 </div>
                 <!-- <br> -->
                 <div class="inputField">
                     <label for="passwordInput">
                         <box-icon name="lock" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
-                    <input required type="password" name="password" id="passwordInput" placeholder="Password">
+                    <input required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{10,30}$" title="All passwords must contain a lowercase letter, a capital letter, a number, a special character and be between 10-30 characters long." type="password" name="password" id="passwordInput" placeholder="Password">
                 </div>
                 <!-- <br> -->
-                <div class="inputField">
+                <!-- <div class="inputField">
                     <label for="repeatPasswordInput">
                         <box-icon name="lock" class="icon" style="color: var(--text-colour);"></box-icon>  
                     </label>
                     <input required type="password" name="repeatPassword" id="repeatPasswordInput" placeholder="Repeat Password">
-                </div>
+                </div> -->
 
                 <button type="submit" id="submitButton"> Submit </button>
             </form>
