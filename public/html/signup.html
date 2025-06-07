@@ -39,28 +39,35 @@
                     </label>
                     <input required pattern="[A-Za-z]{3,30}" title="3-30 letter characters are accepted" type="text" name="firstname" id="firstnameInput" placeholder="Firstname">
                 </div>
-                <!-- <br> -->
+                
                 <div class="inputField">
                     <label for="lastnameInput">
                         <box-icon name="user-circle" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
                     <input required pattern="[A-Za-z]{3,30}" title="3-30 letter characters are accepted" type="text" name="lastname" id="lastnameInput" placeholder="Lastname">
                 </div>
-                <!-- <br> -->
+
+                <div class="inputField">
+                    <label for="usernameInput">
+                        <box-icon name="user-circle" class="icon" style="color: var(--text-colour);"></box-icon>
+                    </label>
+                    <input required pattern="[a-zA-Z0-9._]{3,30}" title="3-30 characters of letters, numbers, dots or underscores are accepted" type="text" name="username" id="usernameInput" placeholder="Username">
+                </div>
+
                 <div class="inputField">
                     <label for="emailInput">
                         <box-icon name="envelope" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
                     <input required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="only valid email addresses are accepted" type="email" name="email" id="emailInput" placeholder="Email">
                 </div>
-                <!-- <br> -->
+                
                 <div class="inputField">
                     <label for="passwordInput">
                         <box-icon name="lock" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
                     <input required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{10,30}$" title="All passwords must contain a lowercase letter, a capital letter, a number, a special character and be between 10-30 characters long." type="password" name="password" id="passwordInput" placeholder="Password">
                 </div>
-                <!-- <br> -->
+                
                 <!-- <div class="inputField">
                     <label for="repeatPasswordInput">
                         <box-icon name="lock" class="icon" style="color: var(--text-colour);"></box-icon>  
