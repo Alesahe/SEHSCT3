@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import sqlite3 from "sqlite3";
 import bodyParser from 'body-parser';
+import bcrypt from 'bcrypt';
 // import 'boxicons';
 
 // const express = require("express");
@@ -49,14 +50,51 @@ app.get("/signup", function (req, res) {
   res.sendFile(path.join(__dirname, "public/html/signup.html"));
 });
 
-// login system post req
-app.post("/registerUser", function(req, res) {
-    db.all("INSERT INTO users(firstname, lastname, username, email, password) VALUES(?, ?, ?, ?, ?)", [`%${req.body.firstname}%`, `%${req.body.lastname}%`, `%${req.body.username}%`, `%${req.body.email}%`, `%${req.body.password}%`], function(err) {
-        if (err) {
+// login system
+// function hashInput(val) {
+//     const saltRounds = 10;
+//     var hashedPW;
+
+//     bcrypt.genSalt(saltRounds, function(err, salt) {
+//         bcrypt.hashSync(val, salt, function(err, hash) {
+//             if (err) throw err;
+//             // console.log("hashed!");
+//             console.log(hash);
+//             hashedPW = hash;
+//             return false;
+//         });
+//     });
+//     console.log(hashedPW);
+//     return hashedPW;
+// }
+
+async function hashInput (val) {
+  const saltRounds = 10;
+
+  const salt = await bcrypt.genSalt(10);
+  const hashedPW = await bcrypt.hash(val, salt);
+  // const hashedPW = await new Promise((resolve, reject) => {
+  //   bcrypt.hash(val, saltRounds, function(err, hash) {
+  //     if (err) reject(err)
+  //     resolve(hash)
+  //   });
+  // })
+  
+  return hashedPW
+}
+
+app.post("/registerUser", async function(req, res) {
+  req.body.firstname = await hashInput(req.body.firstname);
+  req.body.lastname = await hashInput(req.body.lastname);
+  req.body.password = await hashInput(req.body.password);
+    // db.all("INSERT INTO users(firstname, lastname, username, password) VALUES(?, ?, ?, ?)", [`${hashInput(req.body.firstname)}`, `${hashInput(req.body.lastname)}%`, `${req.body.username}`, `${hashInput(req.body.password)}`], function(err) {
+    db.all("INSERT INTO users(firstname, lastname, username, password) VALUES(?, ?, ?, ?)", [`${req.body.firstname}`, `${req.body.lastname}`, `${req.body.username}`, `${req.body.password}`], function(err) {
+      if (err) {
             console.log(err);
         }
         
-        console.log(req.body.username);
+        // console.log(req.body.username);
+        // console.log(req.body.firstname);
         res.json(req.body.username);
     })
 })
