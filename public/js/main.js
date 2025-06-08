@@ -1,1 +1,1 @@
-import 'boxicons'
+import 'boxicons';

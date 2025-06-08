@@ -13,13 +13,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Alesahe/SEHSCT3/issues"
   },
   "homepage": "https://github.com/Alesahe/SEHSCT3#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
     "boxicons": "^2.1.4",
     "express": "^5.1.0",
     "express-flash": "^0.0.2",
