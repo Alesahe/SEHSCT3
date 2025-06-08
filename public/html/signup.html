@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/signup.css">
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body>
     <div id="navbar" class="topnav">
@@ -52,12 +51,12 @@
                     <input required pattern="[a-zA-Z0-9._]{3,30}" title="3-30 characters of letters, numbers, dots or underscores are accepted" type="text" name="username" id="usernameInput" placeholder="Username">
                 </div>
 
-                <div class="inputField">
+                <!-- <div class="inputField">
                     <label for="emailInput">
                         <box-icon name="envelope" class="icon" style="color: var(--text-colour);"></box-icon>
                     </label>
-                    <input required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="only valid email addresses are accepted" type="email" name="email" id="emailInput" placeholder="Email">
-                </div>
+                    <input required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,30}$" title="only valid email addresses are accepted" type="email" name="email" id="emailInput" placeholder="Email">
+                </div> -->
                 
                 <div class="inputField">
                     <label for="passwordInput">
@@ -80,9 +79,10 @@
         </div>
     </section>
 
-<script type="text/javascript" src="../js/main.js"></script>
+<script src="../js/main.js"></script>
 <script type="text/javascript" src="../js/navbar.js"></script>
-<script type="text/javascript" src="../js/userManagement.js"></script>
+<script type="module" src="../js/userManagement.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 </body>
 </html>

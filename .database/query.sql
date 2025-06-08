@@ -7,3 +7,6 @@ CREATE TABLE users(id INTEGER PRIMARY KEY autoincrement, firstname TEXT NOT NULL
 CREATE TABLE comments(id INTEGER PRIMARY KEY autoincrement, comments TEXT NOT NULL);
 
 -- DROP TABLE users;
+
+-- ALTER TABLE users
+-- DROP COLUMN email;
