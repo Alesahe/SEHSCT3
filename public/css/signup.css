@@ -18,7 +18,7 @@
 }
 
 .halfbox {
-    width: 50%;
+    width: 40%;
     text-align: center;
     /* align-items: center; */
 }
@@ -81,7 +81,7 @@ input {
 
 body {
     min-height: 100vh;
-    background-image: url(../images/bg2.jpg);
+    background-image: url(../images/pinkbg.jpg);
     background-size: cover;
     background-position: right;
     overflow: hidden;
