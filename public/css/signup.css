@@ -1,6 +1,6 @@
-#loginButton {
+/* #loginButton {
     display: none;
-}
+} */
 
 .hero {
     font-size: 20px;
@@ -42,7 +42,7 @@ input {
     flex-shrink: 0;
     height:100%;
     width:30px;
-    background-color: var(--purple);
+    background-color: var(--pink);
     /* fill: var(--text-colour); */
     /* color: var(--background-colour); */
     border-radius: 10px 0 0 10px;
@@ -59,7 +59,7 @@ input {
     margin-top: 10px;
     padding: 10px 50px 10px 50px;
     color: var(--text-colour);
-    background-color: var(--purple);
+    background-color: var(--pink);
     border: 0px;
     border-radius: 30px;
     /* border-color: var(--grey); */
@@ -67,7 +67,7 @@ input {
 }
 
 #submitButton:hover {
-    background-color: var(--dark-purple);
+    background-color: var(--dark-pink);
     color: var(--pure-white);
 }
 
@@ -76,7 +76,7 @@ input {
 }
 
 #loginRedirect:hover {
-    color: var(--dark-purple);
+    color: var(--dark-pink);
 }
 
 body {
@@ -106,12 +106,12 @@ form label {
 }
 
 form input:hover {
-    border: solid var(--purple) 2px;
+    border: solid var(--pink) 2px;
 }
 
 form input:focus {
     outline: none;
-    border: solid var(--purple) 2px;
+    border: solid var(--pink) 2px;
 }
 
 @media screen and (max-width: 800px) {

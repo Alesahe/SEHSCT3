@@ -20,15 +20,41 @@
         <a href="javascript:void(0);" id="menuContainer" class="icon" onclick="resizeNavbar()">
             <box-icon name="menu" id="menu" aria-label="burger menu"></box-icon>
         </a>
+
+        <a href="signup" id="registerButton">Register</a>
+        <!-- <box-icon name="menu" class="icon" aria-label="burger menu" style="color: var(--text-colour);" onclick="resizeNavbar()"></box-icon> -->
     </div>
     <hr>
 
-    <!-- ;alj kfldsajflk;dsj -->
+     <section class="wrapper hero" id="BGBox">
+        <div class="hero-content halfbox whiteGradient">
+            <h1 class="vertMiddle"> Login </h1>
+            <form id="loginForm">
+                <div class="inputField">
+                    <label for="usernameInput">
+                        <box-icon name="user-circle" class="icon" style="color: var(--text-colour);"></box-icon>
+                    </label>
+                    <input required pattern="[a-zA-Z0-9._]{3,30}" title="3-30 characters of letters, numbers, dots or underscores are accepted" type="text" name="username" id="usernameInput" placeholder="Username">
+                </div>
+                
+                <div class="inputField">
+                    <label for="passwordInput">
+                        <box-icon name="lock" class="icon" style="color: var(--text-colour);"></box-icon>
+                    </label>
+                    <input required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{10,30}$" title="All passwords must contain a lowercase letter, a capital letter, a number, a special character and be between 10-30 characters long." type="password" name="password" id="passwordInput" placeholder="Password">
+                </div>
+                
+                <button type="submit" id="submitButton"> Submit </button>
+            </form>
 
+            <p> Don't have an account? <a href="signup" id="registerRedirect">Register here.</a></p>
+        </div>
+    </section>
 
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="../js/main.js"></script>
-<script src="../js/navbar.js"></script>
+<script type="text/javascript" src="../js/navbar.js"></script>
+<script type="module" src="../js/userManagement.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 </body>
 </html>
