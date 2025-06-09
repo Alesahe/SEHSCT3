@@ -2,6 +2,13 @@
     display: none;
 } */
 
+#invalidMsg {
+    display:none;
+    border: solid var(--red) 0px;
+    padding: 5px;
+    background-color: var(--red);
+}
+
 .hero {
     font-size: 20px;
 }

@@ -5,9 +5,9 @@ const registerForm = document.getElementById("registerForm");
 
 registerForm.addEventListener("submit", async function(event) {
     console.log("hello?!!?!?");
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
-    // Access form data
+    // yomp chomp form inputs :D
     const firstname = document.getElementById("firstnameInput").value;
     const lastname = document.getElementById("lastnameInput").value;
     const username = document.getElementById("usernameInput").value;
@@ -34,9 +34,7 @@ registerForm.addEventListener("submit", async function(event) {
         if(!response.ok){
             throw new Error("something went wrong ;-;");
         };
-        const checkUsername = await response.json();
+        // const checkUsername = await response.json();
         return await response;
     })
 });
-
-// login form submit

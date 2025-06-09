@@ -50,35 +50,16 @@ app.get("/signup", function (req, res) {
   res.sendFile(path.join(__dirname, "public/html/signup.html"));
 });
 
+app.get("/dashboard", function (req, res) {
+  res.sendFile(path.join(__dirname, "public/html/dashboard.html"));
+});
+
 // login system
-// function hashInput(val) {
-//     const saltRounds = 10;
-//     var hashedPW;
-
-//     bcrypt.genSalt(saltRounds, function(err, salt) {
-//         bcrypt.hashSync(val, salt, function(err, hash) {
-//             if (err) throw err;
-//             // console.log("hashed!");
-//             console.log(hash);
-//             hashedPW = hash;
-//             return false;
-//         });
-//     });
-//     console.log(hashedPW);
-//     return hashedPW;
-// }
-
 async function hashInput (val) {
   const saltRounds = 10;
 
   const salt = await bcrypt.genSalt(10);
   const hashedPW = await bcrypt.hash(val, salt);
-  // const hashedPW = await new Promise((resolve, reject) => {
-  //   bcrypt.hash(val, saltRounds, function(err, hash) {
-  //     if (err) reject(err)
-  //     resolve(hash)
-  //   });
-  // })
   
   return hashedPW
 }
@@ -87,7 +68,6 @@ app.post("/registerUser", async function(req, res) {
   req.body.firstname = await hashInput(req.body.firstname);
   req.body.lastname = await hashInput(req.body.lastname);
   req.body.password = await hashInput(req.body.password);
-    // db.all("INSERT INTO users(firstname, lastname, username, password) VALUES(?, ?, ?, ?)", [`${hashInput(req.body.firstname)}`, `${hashInput(req.body.lastname)}%`, `${req.body.username}`, `${hashInput(req.body.password)}`], function(err) {
     db.all("INSERT INTO users(firstname, lastname, username, password) VALUES(?, ?, ?, ?)", [`${req.body.firstname}`, `${req.body.lastname}`, `${req.body.username}`, `${req.body.password}`], function(err) {
       if (err) {
             console.log(err);
@@ -96,6 +76,19 @@ app.post("/registerUser", async function(req, res) {
         // console.log(req.body.username);
         // console.log(req.body.firstname);
         res.json(req.body.username);
+    })
+})
+
+app.post("/loginUser", async function(req, res) {
+  req.body.password = await hashInput(req.body.password);
+    db.all("SELECT * FROM users WHERE username like ? and password like ?", [`%${req.body.username}%`, `%${req.body.password}%`], function(err, rows) {
+        if (err) console.log(err);
+        if (rows.length>0){
+          console.log(validRes);
+          res.json(req.body.username);
+        }
+        
+        res.json(-1);
     })
 })
 
