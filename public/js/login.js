@@ -28,15 +28,19 @@ loginForm.addEventListener("submit", async function(event) {
         }
     })
     .then(async function(response){
+        const responseMSG = await response.json();
+        console.log("hello");
         if(!response.ok){
             throw new Error("yikes, login went wrong ;-;");
         };
         // const checkUsername = await response.json();
-        if (response==-1){
+        if (responseMSG==null){
             invalidLogin();
+            console.log("the login was worng idk");
         } else {
+            console.log("a");
+            console.log(responseMSG);
             window.location.href = "/dashboard";
         }
-        return await response;
     })
 });

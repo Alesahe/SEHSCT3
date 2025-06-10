@@ -56,12 +56,11 @@ app.get("/dashboard", function (req, res) {
 
 // login system
 async function hashInput (val) {
-  const saltRounds = 10;
-
+  // const saltRounds = 10;
   const salt = await bcrypt.genSalt(10);
   const hashedPW = await bcrypt.hash(val, salt);
   
-  return hashedPW
+  return hashedPW;
 }
 
 app.post("/registerUser", async function(req, res) {
@@ -80,16 +79,24 @@ app.post("/registerUser", async function(req, res) {
 })
 
 app.post("/loginUser", async function(req, res) {
-  req.body.password = await hashInput(req.body.password);
-    db.all("SELECT * FROM users WHERE username like ? and password like ?", [`%${req.body.username}%`, `%${req.body.password}%`], function(err, rows) {
-        if (err) console.log(err);
-        if (rows.length>0){
-          console.log(validRes);
+  // req.body.password = await hashInput(req.body.password);
+  // console.log(req.body.password);
+  db.all("SELECT * FROM users WHERE username like ?", [`%${req.body.username}%`], function(err, rows) {
+      if (err) console.log(err);
+      for (let i=0; i<rows.length; i++){
+        if (bcrypt.compare(req.body.password, rows[i].password)) {
+          console.log("worked");
           res.json(req.body.username);
+          return;
         }
-        
-        res.json(-1);
-    })
+      }
+      // if (rows.length>0){
+      //   console.log(rows.length());
+      //   res.json(req.body.username);
+      // }
+      
+      res.json(null);
+  })
 })
 
 // commenting/feedback mechanism
