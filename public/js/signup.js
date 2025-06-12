@@ -1,10 +1,15 @@
+const registerForm = document.getElementById("registerForm");
+const userTaken = document.getElementById("userTaken");
 // console.log("halaaj sk");
 
-//signup form submit
-const registerForm = document.getElementById("registerForm");
+function usernameTaken (){
+    userTaken.style.display = "block";
+    userTaken.textContent = "Username already taken.";
+}
 
+//signup form submit
 registerForm.addEventListener("submit", async function(event) {
-    console.log("hello?!!?!?");
+    // console.log("hello?!!?!?");
     event.preventDefault();
 
     // yomp chomp form inputs :D
@@ -14,17 +19,13 @@ registerForm.addEventListener("submit", async function(event) {
     // const email = document.getElementById("emailInput").value;
     const password = document.getElementById("passwordInput").value;
 
-    // post request!!
+    // post requests...
     // code ADAPTED from https://www.geeksforgeeks.org/how-to-send-an-http-post-request-in-js/
-    // console.log('here');
-    await fetch("/registerUser", {
+    // check if same username is alr taken
+    await fetch("/sameUser", {
         method: "POST",
         body: JSON.stringify ({
-            firstname: firstname,
-            lastname: lastname,
-            username: username,
-            // email: hashInput(email),
-            password: password
+            username: username
         }),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -32,9 +33,33 @@ registerForm.addEventListener("submit", async function(event) {
     })
     .then(async function(response){
         if(!response.ok){
-            throw new Error("something went wrong ;-;");
+            throw new Error("same user went wrong ;-;");
+            // console.log(response);
         };
-        // const checkUsername = await response.json();
-        return await response;
+        const numUsers = await response.json();
+        if (numUsers>0) usernameTaken();
+        else {
+            // register the user
+            await fetch("/registerUser", {
+                method: "POST",
+                body: JSON.stringify ({
+                    firstname: firstname,
+                    lastname: lastname,
+                    username: username,
+                    // email: hashInput(email),
+                    password: password
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            .then(async function(response){
+                if(!response.ok){
+                    throw new Error("register user went wrong ;-;");
+                };
+                // const checkUsername = await response.json();
+                return await response;
+            })
+        }
     })
 });

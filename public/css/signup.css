@@ -1,6 +1,19 @@
 /* #loginButton {
     display: none;
 } */
+ #userTaken {
+    width: 300px;
+    margin: auto;
+    display:none;
+    font-size: 15px;
+    border: solid var(--bright-red) 2px;
+    color: var(--bright-red);
+    /* border: solid var(--red) 0px; */
+    padding: 5px;
+    /* background-color: var(--red); */
+    border-radius: 5px;
+    background-color: var(--light-red);
+}
 
 .hero {
     font-size: 20px;

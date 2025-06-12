@@ -67,15 +67,18 @@ app.post("/registerUser", async function(req, res) {
   req.body.firstname = await hashInput(req.body.firstname);
   req.body.lastname = await hashInput(req.body.lastname);
   req.body.password = await hashInput(req.body.password);
-    db.all("INSERT INTO users(firstname, lastname, username, password) VALUES(?, ?, ?, ?)", [`${req.body.firstname}`, `${req.body.lastname}`, `${req.body.username}`, `${req.body.password}`], function(err) {
-      if (err) {
-            console.log(err);
-        }
-        
-        // console.log(req.body.username);
-        // console.log(req.body.firstname);
-        res.json(req.body.username);
-    })
+  db.all("INSERT INTO users(firstname, lastname, username, password) VALUES(?, ?, ?, ?)", [`${req.body.firstname}`, `${req.body.lastname}`, `${req.body.username}`, `${req.body.password}`], function(err) {
+    if (err) console.log(err);
+    res.json(req.body.username);
+  })
+})
+
+app.post("/sameUser", async function(req, res) {
+  db.all("SELECT * FROM users WHERE username like ?", [`%${req.body.username}%`], function (err, rows) {
+    if (err) throw new Error (err);
+    res.json(rows.length);
+    console.log(rows.length);
+  })
 })
 
 app.post("/loginUser", async function(req, res) {
