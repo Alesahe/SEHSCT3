@@ -1,10 +1,16 @@
 const registerForm = document.getElementById("registerForm");
 const userTaken = document.getElementById("userTaken");
+const successMsg = document.getElementById("successMsg");
 // console.log("halaaj sk");
 
 function usernameTaken (){
     userTaken.style.display = "block";
     userTaken.textContent = "Username already taken.";
+}
+
+function registerSuccess(){
+    successMsg.style.display = "block";
+    successMsg.textContent = "Account was registered.";
 }
 
 //signup form submit
@@ -62,4 +68,9 @@ registerForm.addEventListener("submit", async function(event) {
             })
         }
     })
+
+    // reset form data + success message
+    registerSuccess();
+    registerForm.reset(); 
+    return false;
 });
