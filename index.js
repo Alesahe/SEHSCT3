@@ -4,19 +4,13 @@ import { fileURLToPath } from 'url';
 import sqlite3 from "sqlite3";
 import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
+import session from 'express-session';
 // import 'boxicons';
-
-// const express = require("express");
-// const path = require("path");
-// const bcrypt = require("bcrypt");
-// const passport = require("passport");
-// const flash = require("express-flash");
-// const session = require("express-session");
-// const methodOverride = require("method-override");
 
 const port = 5500;
 const hostname = '127.0.0.1';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const sessionExpiration = 1000*60*60*2;
 
 var db = new sqlite3.Database(".database/main.db");
 
@@ -24,6 +18,17 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('trust proxy', 1);
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false, //because localhost but when live (https server), set to true
+    maxAge: sessionExpiration,
+  },
+}));
 
 // rerouting urls
 app.get("/", function (req, res) {
@@ -51,7 +56,13 @@ app.get("/signup", function (req, res) {
 });
 
 app.get("/dashboard", function (req, res) {
-  res.sendFile(path.join(__dirname, "public/html/dashboard.html"));
+  if (req.session.user) {
+    console.log("HERE");
+    res.sendFile(path.join(__dirname, "public/html/dashboard.html"));
+  } else {
+    console.log(req.session.user);
+    res.redirect('/login');
+  }
 });
 
 // login system
@@ -89,6 +100,8 @@ app.post("/loginUser", async function(req, res) {
       for (let i=0; i<rows.length; i++){
         if (bcrypt.compare(req.body.password, rows[i].password)) {
           console.log("worked");
+          req.session.user = { username: req.body.username };
+          console.log(req.session.user);
           res.json(req.body.username);
           return;
         }
@@ -100,7 +113,19 @@ app.post("/loginUser", async function(req, res) {
       
       res.json(null);
   })
+
+  // req.session.userId = 'user123';
+  // res.send('Logged in');
 })
+
+app.get('/logoutUser', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log("log out went badly");
+    }
+    res.redirect('/login');
+  });
+});
 
 // commenting/feedback mechanism
 

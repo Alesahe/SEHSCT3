@@ -66,11 +66,10 @@ registerForm.addEventListener("submit", async function(event) {
                 // const checkUsername = await response.json();
                 return await response;
             })
+            // reset form data + success message
+            registerSuccess();
+            registerForm.reset(); 
+            return false;
         }
     })
-
-    // reset form data + success message
-    registerSuccess();
-    registerForm.reset(); 
-    return false;
 });
