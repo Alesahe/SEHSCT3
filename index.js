@@ -5,6 +5,7 @@ import sqlite3 from "sqlite3";
 import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
 import session from 'express-session';
+// import { LOButton } from "../SEHSCT3/public/js/main.js";
 // import 'boxicons';
 
 const port = 5500;
@@ -21,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('trust proxy', 1);
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'your-secret-key', // environment variables???? thisisnt' good lol
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -118,12 +119,12 @@ app.post("/loginUser", async function(req, res) {
   // res.send('Logged in');
 })
 
-app.get('/logoutUser', (req, res) => {
+app.get("/logoutUser", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      console.log("log out went badly");
+      console.log("logout went badly");
     }
-    res.redirect('/login');
+    res.redirect("/login");
   });
 });
 

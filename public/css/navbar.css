@@ -37,6 +37,16 @@
     float: right;
 }
 
+#dashboardButton {
+    display: none;
+    float:right;
+}
+
+#logoutButton {
+    display: none;
+    float: right;
+}
+
 #home:hover {
     background-color: var(--red);
 }
@@ -58,6 +68,14 @@
 }
 
 #registerButton:hover {
+    background-color: var(--pink);
+}
+
+#dashboardButton:hover {
+    background-color: var(--purple);
+}
+
+#logoutButton:hover {
     background-color: var(--pink);
 }
 

@@ -1,3 +1,5 @@
+// import { LIButton } from "main.js";
+
 const loginForm = document.getElementById("loginForm");
 const invalidMsg = document.getElementById("invalidMsg");
 
@@ -41,6 +43,7 @@ loginForm.addEventListener("submit", async function(event) {
             // console.log("a");
             console.log(responseMSG);
             window.location.href = "/dashboard";
+            LIButton();
         }
     })
 });
