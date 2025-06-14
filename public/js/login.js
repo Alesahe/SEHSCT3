@@ -42,7 +42,7 @@ loginForm.addEventListener("submit", async function(event) {
         } else {
             // console.log("a");
             console.log(responseMSG);
-            window.location.href = "/dashboard";
+            window.location.href = "/feedback";
             LIButton();
         }
     })

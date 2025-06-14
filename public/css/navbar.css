@@ -37,7 +37,7 @@
     float: right;
 }
 
-#dashboardButton {
+#feedbackButton {
     display: none;
     float:right;
 }
@@ -71,7 +71,7 @@
     background-color: var(--pink);
 }
 
-#dashboardButton:hover {
+#feedbackButton:hover {
     background-color: var(--purple);
 }
 
