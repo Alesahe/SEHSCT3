@@ -6,33 +6,41 @@
     display: none;
 } */
 
-.card {
-  max-width: 33rem;
-  background: #fff;
-  margin: 0 1rem;
-  padding: 1rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  border-radius: 0.5rem;
+#submittedMsg {
+    width: 300px;
+    margin: auto;
+    display:none;
+    font-size: 15px;
+    border: solid var(--bright-green) 2px;
+    color: var(--bright-green);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--light-green);
 }
+
+#rating {
+    display: none;
+}
+
 .star {
   font-size: 10vh;
+  color: var(--background-colour);
   cursor: pointer;
 }
 .one {
-  color: rgb(255, 0, 0);
+  color: var(--bright-red);
 }
 .two {
-  color: rgb(255, 106, 0);
+  color: var(--orange);
 }
 .three {
-  color: rgb(251, 255, 120);
+  color: var(--yellow);
 }
 .four {
-  color: rgb(255, 255, 0);
+  color: var(--green);
 }
 .five {
-  color: rgb(24, 159, 14);
+  color: var(--bright-green);
 }
 
 #successWelcome {
@@ -55,7 +63,7 @@
 }
 
 .halfbox {
-    width: 40%;
+    width: 50%;
     text-align: center;
     /* align-items: center; */
 }
@@ -80,7 +88,7 @@ textarea {
 }
 
 .vertMiddle{
-    margin-top: 20%;
+    margin-top: 15%;
     /* margin-bottom: 15px; */
     margin-bottom: 0px;
 }

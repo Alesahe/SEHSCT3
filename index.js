@@ -129,7 +129,13 @@ app.get("/logoutUser", (req, res) => {
 });
 
 // commenting/feedback mechanism
-
+app.post("/giveFeedback", async function(req, res) {
+  // console.log(req.session.user.username);
+  db.all("INSERT INTO feedback(username, starRating, comments) VALUES(?, ?, ?)", [`${req.session.user.username}`, `${req.body.starRating}`, `${req.body.feedback}`], function(err) {
+    if (err) console.log(err);
+    res.json(req.body.starRating);
+  })
+})
 
 // admin access
 

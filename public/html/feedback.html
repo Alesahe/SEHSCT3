@@ -27,22 +27,24 @@
 
     <section class="wrapper hero" id="BGBox">
         <div class="hero-content halfbox whiteGradient">
-            <h1 id="successWelcome" class="vertMiddle">Welcome!</h1>
-            <h3>Reviews</h3>
+            <!-- <h1 id="successWelcome" class="vertMiddle">Welcome!</h1> -->
+            <h3 class="vertMiddle">Reviews</h3>
             <p>Reviews are displayed on "Families".</p>
             <form id="feedbackForm">
-                <div class="card">
-                    <span onclick="gfg(1)" class="star">★</span>
-                    <span onclick="gfg(2)" class="star">★</span>
-                    <span onclick="gfg(3)" class="star">★</span>
-                    <span onclick="gfg(4)" class="star">★</span>
-                    <span onclick="gfg(5)" class="star">★</span>
-                    <h3 id="output">0/5</h3>
+                <div>
+                    <span onclick="updateColour(1)" class="star">★</span>
+                    <span onclick="updateColour(2)" class="star">★</span>
+                    <span onclick="updateColour(3)" class="star">★</span>
+                    <span onclick="updateColour(4)" class="star">★</span>
+                    <span onclick="updateColour(5)" class="star">★</span>
+                    <p id="rating">1</p>
                 </div>
                 <div class="inputField">
-                    <textarea id="feedbackInput" name="feedbackInput" rows="4" col="50" placeholder="Please enter your feedback"></textarea>
+                    <textarea required id="feedbackInput" name="feedbackInput" rows="4" col="50" placeholder="Please enter your feedback"></textarea>
                 </div>
             
+                <p id="submittedMsg"></p>
+                <br> 
                 <button type="submit" id="submitButton"> Submit </button>
             </form>
         </div>
@@ -52,5 +54,6 @@
 <script src="../js/main.js"></script>
 <script src="../js/navbar.js"></script>
 <script src="../js/starRating.js"></script>
+<script src="../js/feedback.js"></script>
 </body>
 </html>

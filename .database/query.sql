@@ -4,9 +4,13 @@ CREATE TABLE users(id INTEGER PRIMARY KEY autoincrement, firstname TEXT NOT NULL
 
 -- SELECT * FROM extension;
 
-CREATE TABLE comments(id INTEGER PRIMARY KEY autoincrement, comments TEXT NOT NULL);
+-- CREATE TABLE comments(id INTEGER PRIMARY KEY autoincrement, comments TEXT NOT NULL);
+
+CREATE TABLE feedback(id INTEGER PRIMARY KEY autoincrement, username TEXT NOT NULL, starRating INTEGER NOT NULL, comments TEXT NOT NULL);
 
 -- DROP TABLE users;
+-- DROP TABLE comments;
+-- DROP TABLE feedback;
 
 -- ALTER TABLE users
 -- DROP COLUMN email;
