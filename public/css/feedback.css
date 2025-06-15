@@ -18,31 +18,6 @@
     background-color: var(--light-green);
 }
 
-#rating {
-    display: none;
-}
-
-.star {
-  font-size: 10vh;
-  color: var(--background-colour);
-  cursor: pointer;
-}
-.one {
-  color: var(--bright-red);
-}
-.two {
-  color: var(--orange);
-}
-.three {
-  color: var(--yellow);
-}
-.four {
-  color: var(--green);
-}
-.five {
-  color: var(--bright-green);
-}
-
 #successWelcome {
     margin-bottom: 0px;
 }

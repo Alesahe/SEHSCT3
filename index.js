@@ -137,6 +137,19 @@ app.post("/giveFeedback", async function(req, res) {
   })
 })
 
+app.post("/retrieveReviews", async function(req, res) {
+  db.all("SELECT * FROM feedback", function(err, rows) {
+      if (err) console.log(err);
+      let allReviews = [];
+      for (let i=0; i<rows.length; i++){
+        allReviews.push([rows[i].username, rows[i].starRating, rows[i].comments]);
+      }
+      
+      // console.log(allReviews);
+      res.json(allReviews);
+  })
+})
+
 // admin access
 
 

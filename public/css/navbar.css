@@ -106,7 +106,7 @@
     height: 21px;
 }
 
-@media screen and (max-width: 400px) { /* change max-width to like something more suitable*/
+@media screen and (max-width: 500px) { /* change max-width to like something more suitable*/
     .topnav a:not(.active) {display: none;}
     .topnav a.icon {
         display: block;
@@ -129,6 +129,11 @@
     }
 
     #loginButton {
+        float: left;
+        width: 100%;
+    }
+
+    #registerButton {
         float: left;
         width: 100%;
     }

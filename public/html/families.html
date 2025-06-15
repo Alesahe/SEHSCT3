@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/[]].css">
+    <link rel="stylesheet" href="../css/families.css">
+    <link rel="stylesheet" href="../css/star.css">
 </head>
-<body>
+<body onload=displayReviews();>
     <div id="navbar" class="topnav">
         <a href="/" id="home">Home</a>
         <a href="families" class="active" id="families">Families</a>
@@ -28,13 +29,18 @@
     </div>
     <hr>
 
-    <!-- ;alj kfldsajflk;dsj -->
-    <h1> Here's what our families have to say </h1>
-    <p>
-    </p>
+            <h1 id="heading"> Here's what our families have to say </h1>
+            <div id="reviewContainer" class="vertMiddle">
+                <!-- reviews from displayReviews() go here -->
+                <!-- <div class="reviewBox">
+                    helloooo
+                </div> -->
+            </div>
 
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/navbar.js"></script>
+<script src="../js/families.js"></script>
+<script src="../js/starRating.js"></script>
 </body>
 </html>
