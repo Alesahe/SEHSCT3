@@ -1,12 +1,33 @@
+.row {
+    width: 75%;
+    margin: auto;
+}
+
 .column {
+    /* margin: 0 30px; */
     box-sizing: border-box;
     float: left;
+    /* width: 25%; */
     width: 33.33%;
     padding: 10px;
+    /* border-radius: 10px; */
 }
 
 .row:after {
     content: "";
     display: table;
     clear: both;
+}
+
+.partBox {
+    /* width: 0%; */
+    height: 230px;
+    background-color: var(--blue);
+    margin: auto;
+    border-radius: 10px;
+}
+
+box-icon {
+    margin-top: 50px;
+    color: var(--text-colour);
 }
