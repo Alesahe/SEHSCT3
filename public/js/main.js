@@ -4,6 +4,12 @@ const loginButton = document.getElementById("loginButton");
 const feedbackButton = document.getElementById("feedbackButton");
 const logoutButton = document.getElementById("logoutButton");
 
+document.addEventListener("DOMContentLoaded", function(event) {
+    loginButtonDisplay();
+});
+
+// document.onload()
+
 function LIButton(){
     registerButton.style.display = "none";
     loginButton.style.display = "none";
