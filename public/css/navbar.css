@@ -39,7 +39,7 @@
 
 #feedbackButton {
     display: none;
-    float:right;
+    float:left;
 }
 
 #logoutButton {
@@ -95,6 +95,10 @@
     background-color: var(--blue);
 }
 
+#feedback.active {
+    background-color: var(--purple);
+}
+
 #loginButton.active {
     background-color: var(--purple);
 }
@@ -106,7 +110,7 @@
     height: 21px;
 }
 
-@media screen and (max-width: 500px) { /* change max-width to like something more suitable*/
+@media screen and (max-width: 500px) {
     .topnav a:not(.active) {display: none;}
     .topnav a.icon {
         display: block;
@@ -126,16 +130,6 @@
         float: none;
         display: block;
         text-align: left;
-    }
-
-    #loginButton {
-        float: left;
-        width: 100%;
-    }
-
-    #registerButton {
-        float: left;
-        width: 100%;
     }
 }
 

@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
-<body>
+<body onload="loginButtonDisplay()">
+<!-- <body onload="resizeNavbar()"> -->
     <div id="navbar" class="topnav">
         <a href="/" id="home" class="active">Home</a>
         <a href="families" id="families">Families</a>
         <a href="gallery" id="gallery">Gallery</a>
         <a href="contact" id="contact">Contact</a>
+        <a href="feedback" id="feedbackButton"> Feedback</a>
 
         <a href="javascript:void(0);" id="menuContainer" class="icon" onclick="resizeNavbar()">
             <box-icon name="menu" id="menu" aria-label="burger menu"></box-icon>
@@ -23,7 +25,6 @@
         
         <a href="signup" id="registerButton">Register</a>
         <a href="login" id="loginButton">Login</a>
-        <a href="feedback" id="feedbackButton"> Feedback</a>
         <!-- <a href="javascript:void(0);" id="logoutButton" onclick="logout()"> Logout </a> -->
         <a href="logoutUser" id="logoutButton"> Logout </a>
     </div>
@@ -38,20 +39,22 @@
 
     <section class="hero centre" id="about">
         <div class="hero-content">
-            <h1> Resume </h1>
+            <h1> About Us </h1>
             <p> []. </p>
         </div>
     </section>
 
     <section class="hero centre" id="fees">
         <div class="hero-content">
-            <h1> Our fees </h1>
+            <h1> Resume </h1>
             <p> []. </p>
         </div>
     </section>
 
+    <!-- <button onclick="loginButtonDisplay()">asdf</button> -->
+
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script src="../js/main.js"></script>
+<script src="/js/main.js"></script>
 <script src="../js/navbar.js"></script>
 
 </body>

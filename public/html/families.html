@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="../css/families.css">
     <link rel="stylesheet" href="../css/star.css">
 </head>
-<body onload=displayReviews();>
+<body onload="displayReviews(); loginButtonDisplay()">
     <div id="navbar" class="topnav">
         <a href="/" id="home">Home</a>
         <a href="families" class="active" id="families">Families</a>
         <a href="gallery" id="gallery">Gallery</a>
         <a href="contact" id="contact">Contact</a>
+        <a href="feedback" id="feedbackButton"> Feedback</a>
 
         <a href="javascript:void(0);" id="menuContainer" class="icon" onclick="resizeNavbar()">
             <box-icon name="menu" id="menu" aria-label="burger menu"></box-icon>
         </a>
         <a href="signup" id="registerButton">Register</a>
         <a href="login" id="loginButton">Login</a>
-        <a href="feedback" id="feedbackButton"> Feedback</a>
         <!-- <a href="javascript:void(0);" id="logoutButton" onclick="logout()"> Logout </a> -->
         <a href="logoutUser" id="logoutButton"> Logout </a>
     </div>

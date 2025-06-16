@@ -12,6 +12,7 @@ const port = 5500;
 const hostname = '127.0.0.1';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const sessionExpiration = 1000*60*60*2;
+var loggedIn = false;
 
 var db = new sqlite3.Database(".database/main.db");
 
@@ -110,7 +111,8 @@ app.post("/loginUser", async function(req, res) {
       if (err) console.log(err);
       for (let i=0; i<rows.length; i++){
         if (bcrypt.compare(req.body.password, rows[i].password)) {
-          console.log("worked");
+          // console.log("worked");
+          loggedIn = true;
           req.session.user = { username: req.body.username };
           console.log(req.session.user);
           res.json(req.body.username);
@@ -130,6 +132,7 @@ app.post("/loginUser", async function(req, res) {
 })
 
 app.get("/logoutUser", (req, res) => {
+  loggedIn = false;
   req.session.destroy((err) => {
     if (err) {
       console.log("logout went badly");
@@ -158,6 +161,11 @@ app.post("/retrieveReviews", async function(req, res) {
       // console.log(allReviews);
       res.json(allReviews);
   })
+})
+
+// for button display
+app.post("/loggedIn", async function(req, res) {
+  res.json(loggedIn);
 })
 
 app.listen(port, () => {
