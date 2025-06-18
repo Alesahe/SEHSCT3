@@ -37,7 +37,7 @@ async function displayReviews(){
             newReviewBox.appendChild(username);
             newReviewBox.appendChild(comments);
             reviewContainer.appendChild(newReviewBox);
-            console.log(reviewContainer.innerHTML);
+            // console.log(reviewContainer.innerHTML);
         }
         // console.log(allReviews);
     })

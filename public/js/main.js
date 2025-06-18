@@ -1,8 +1,10 @@
 var loggedIn;
+var userAdmin;
 const registerButton = document.getElementById("registerButton");
 const loginButton = document.getElementById("loginButton");
 const feedbackButton = document.getElementById("feedbackButton");
 const logoutButton = document.getElementById("logoutButton");
+const adminButton = document.getElementById("adminButton");
 
 document.addEventListener("DOMContentLoaded", function(event) {
     loginButtonDisplay();
@@ -15,6 +17,7 @@ function LIButton(){
     loginButton.style.display = "none";
     feedbackButton.style.display = "block";
     logoutButton.style.display = "block";
+    if (userAdmin) adminButton.style.display = "block";
 }
 
 function LOButton(){
@@ -33,11 +36,16 @@ async function loginButtonDisplay(){
         }
     })
     .then(async function(response){
-        loggedIn = await response.json();
+        const LIUA = await response.json();
+        loggedIn = LIUA[0];
+        userAdmin = LIUA[1];
         if(!response.ok){
             throw new Error("login button displaying went wrong ;-;");
         };
-        // console.log("ajdl !")
+
+        console.log("LI:" + loggedIn);
+        console.log("UA:" + userAdmin);
+        console.log(LIUA);
     })
 
 

@@ -13,6 +13,7 @@ const hostname = '127.0.0.1';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const sessionExpiration = 1000*60*60*2;
 var loggedIn = false;
+var userAdmin = false;
 
 var db = new sqlite3.Database(".database/main.db");
 
@@ -69,7 +70,7 @@ app.get("/feedback", function (req, res) {
 
 //admin access
 app.get("/admin", function (req, res){
-  if (loggedIn && req.session.user.username == "ale") { //  || req.session.user.username == ""
+  if (loggedIn && userAdmin) { //  || req.session.user.username == ""
       res.sendFile(path.join(__dirname, "public/html/admin.html"));
   } else {
     return res.status(403).send("Forbidden Page.");
@@ -114,6 +115,7 @@ app.post("/loginUser", async function(req, res) {
           // console.log("worked");
           loggedIn = true;
           req.session.user = { username: req.body.username };
+          if (req.session.user.username =="ale" || req.session.user.username=="MsChen" || req.session.user.username=="JingXiao") userAdmin = true;
           console.log(req.session.user);
           res.json(req.body.username);
           return;
@@ -133,6 +135,7 @@ app.post("/loginUser", async function(req, res) {
 
 app.get("/logoutUser", (req, res) => {
   loggedIn = false;
+  userAdmin = false;
   req.session.destroy((err) => {
     if (err) {
       console.log("logout went badly");
@@ -165,7 +168,8 @@ app.post("/retrieveReviews", async function(req, res) {
 
 // for button display
 app.post("/loggedIn", async function(req, res) {
-  res.json(loggedIn);
+  console.log([loggedIn, userAdmin]);
+  res.json([loggedIn, userAdmin]);
 })
 
 app.listen(port, () => {

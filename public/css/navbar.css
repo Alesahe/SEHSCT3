@@ -42,6 +42,11 @@
     float: left;
 }
 
+#adminButton {
+    display: none;
+    float: right;
+}
+
 #logoutButton {
     display: none;
     float: right;
@@ -75,6 +80,10 @@
     background-color: var(--purple);
 }
 
+#adminButton:hover {
+    background-color: var(--purple);
+}
+
 #logoutButton:hover {
     background-color: var(--pink);
 }
@@ -96,6 +105,10 @@
 }
 
 #feedbackButton.active {
+    background-color: var(--purple);
+}
+
+#adminButton.active {
     background-color: var(--purple);
 }
 
