@@ -59,7 +59,7 @@ app.get("/signup", function (req, res) {
 
 app.get("/feedback", function (req, res) {
   if (req.session.user) {
-    console.log("HERE");
+    // console.log("HERE");
     res.sendFile(path.join(__dirname, "public/html/feedback.html"));
   } else {
     console.log(req.session.user);

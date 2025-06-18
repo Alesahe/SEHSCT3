@@ -37,11 +37,11 @@ async function loginButtonDisplay(){
         if(!response.ok){
             throw new Error("login button displaying went wrong ;-;");
         };
-        console.log("loggedinhere!")
+        // console.log("ajdl !")
     })
 
 
     if (loggedIn) LIButton();
     else LOButton();
-    console.log("ASDFASD");
+    console.log("login button display happened");
 }

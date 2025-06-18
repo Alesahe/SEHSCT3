@@ -39,7 +39,7 @@
 
 #feedbackButton {
     display: none;
-    float:left;
+    float: left;
 }
 
 #logoutButton {
@@ -95,7 +95,7 @@
     background-color: var(--blue);
 }
 
-#feedback.active {
+#feedbackButton.active {
     background-color: var(--purple);
 }
 
