@@ -69,10 +69,10 @@ app.get("/feedback", function (req, res) {
 
 //admin access
 app.get("/admin", function (req, res){
-  if (req.session.user.username == "ale") { //  || req.session.user.username == ""
+  if (loggedIn && req.session.user.username == "ale") { //  || req.session.user.username == ""
       res.sendFile(path.join(__dirname, "public/html/admin.html"));
   } else {
-    return res.status(403).send("Forbidden.");
+    return res.status(403).send("Forbidden Page.");
   }
 });
 
