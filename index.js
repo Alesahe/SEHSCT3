@@ -168,7 +168,7 @@ app.post("/retrieveReviews", async function(req, res) {
 
 // for button display
 app.post("/loggedIn", async function(req, res) {
-  console.log([loggedIn, userAdmin]);
+  // console.log([loggedIn, userAdmin]);
   res.json([loggedIn, userAdmin]);
 })
 
