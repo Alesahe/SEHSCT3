@@ -24,6 +24,7 @@ p {
 
 .halfTextBox {
     width: 50%;
+    /* height:  */
 }
 
 .row {
@@ -66,5 +67,11 @@ p {
 @media screen and (max-width: 1200px) {
     .column {
         width: 100%;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .hero {
+        height: 450px;
     }
 }

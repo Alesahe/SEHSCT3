@@ -14,20 +14,19 @@
 <!-- <body> -->
     <div id="navbar" class="topnav">
         <a href="/" id="home" class="active">Home</a>
-        <a href="families" id="families">Families</a>
-        <a href="gallery" id="gallery">Gallery</a>
-        <a href="contact" id="contact">Contact</a>
-        <a href="feedback" id="feedbackButton"> Feedback</a>
+        <a href="families" id="families" aria-label="families">Families</a>
+        <a href="gallery" id="gallery" aria-label="gallery">Gallery</a>
+        <a href="contact" id="contact" aria-label="contact">Contact</a>
+        <a href="feedback" id="feedbackButton" aria-label="feedback"> Feedback</a>
 
         <a href="javascript:void(0);" id="menuContainer" class="icon" onclick="resizeNavbar()">
             <box-icon name="menu" id="menu" aria-label="burger menu"></box-icon>
         </a>
-        
-        <a href="signup" id="registerButton">Register</a>
-        <a href="login" id="loginButton">Login</a>
+        <a href="signup" id="registerButton" aria-label="register">Register</a>
+        <a href="login" id="loginButton" aria-label="login">Login</a>
         <!-- <a href="javascript:void(0);" id="logoutButton" onclick="logout()"> Logout </a> -->
-        <a href="logoutUser" id="logoutButton"> Logout </a>
-        <a href="admin" id="adminButton"> Admin </a>
+        <a href="logoutUser" id="logoutButton" aria-label="logout"> Logout </a>
+        <a href="admin" id="adminButton" aria-label="admin"> Admin </a>
     </div>
     <hr>
 
@@ -58,7 +57,7 @@
         <div class="column">
             <div class="partBox">
                 <h1> About Me </h1>
-                <p id="aboutMeText"> 
+                <p id="aboutMeText" aria-label="aboutMe"> 
                     Hello Parent!
                     <br><br>
                     My name is Vicky, the primary educator of Vivid Hills Family Day Care. As a mother of two and an 
@@ -71,7 +70,7 @@
         <div class="column">
             <div class="partBox">
                 <h1> Resume </h1>
-                <p id="resumeText"> 
+                <p id="resumeText" aria-label="resume"> 
                     []. 
                     - ABN 67661762032
                     - registered by Approved Service Baulkham Hills Family Day Care ABN 52853598050
@@ -85,7 +84,7 @@
         <div class="column">
             <div class="partBox">
                 <h1> Opening Hours </h1>
-                <p id="openingHoursText"> 
+                <p id="openingHoursText" aria-label="opening hours"> 
                     Our family day care operates from Monday to Friday, opening at 8:00AM and closing at 6:00PM. 
                     <br><br>
                     We offer flexible care options, allowing you to book between 8 to 10 hours per day depending
