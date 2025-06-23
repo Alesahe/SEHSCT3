@@ -5,6 +5,7 @@ import sqlite3 from "sqlite3";
 import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
 import session from 'express-session';
+// import multer from 'multer';
 // import { LOButton } from "../SEHSCT3/public/js/main.js";
 // import 'boxicons';
 
@@ -171,6 +172,17 @@ app.post("/loggedIn", async function(req, res) {
   // console.log([loggedIn, userAdmin]);
   res.json([loggedIn, userAdmin]);
 })
+
+// const multer = require('multer');
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'public/userUploads/images/')
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   }
+// });
+// const upload = multer({ storage: storage });
 
 app.listen(port, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
