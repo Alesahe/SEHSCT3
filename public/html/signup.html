@@ -13,20 +13,19 @@
 <body onload="loginButtonDisplay()">
     <div id="navbar" class="topnav">
         <a href="/" id="home">Home</a>
-        <a href="families" id="families">Families</a>
-        <a href="gallery" id="gallery">Gallery</a>
-        <a href="contact" id="contact">Contact</a>
-        <a href="feedback" id="feedbackButton"> Feedback</a>
+        <a href="families" id="families" aria-label="families">Families</a>
+        <a href="gallery" id="gallery" aria-label="gallery">Gallery</a>
+        <a href="contact" id="contact" aria-label="contact">Contact</a>
+        <a href="feedback" id="feedbackButton" aria-label="feedback"> Feedback</a>
 
         <a href="javascript:void(0);" id="menuContainer" class="icon" onclick="resizeNavbar()">
             <box-icon name="menu" id="menu" aria-label="burger menu"></box-icon>
         </a>
-
-        <a href="login" id="loginButton">Login</a>
+        <!-- <a href="signup" id="registerButton" aria-label="register">Register</a> -->
+        <a href="login" id="loginButton" aria-label="login">Login</a>
         <!-- <a href="javascript:void(0);" id="logoutButton" onclick="logout()"> Logout </a> -->
-        <a href="logoutUser" id="logoutButton"> Logout </a>
-        <a href="admin" id="adminButton"> Admin </a>
-        <!-- <box-icon name="menu" class="icon" aria-label="burger menu" style="color: var(--text-colour);" onclick="resizeNavbar()"></box-icon> -->
+        <a href="logoutUser" id="logoutButton" aria-label="logout"> Logout </a>
+        <a href="admin" id="adminButton" aria-label="admin"> Admin </a>
     </div>
     <hr>
 
