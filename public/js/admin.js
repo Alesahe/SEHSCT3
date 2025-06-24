@@ -1,4 +1,5 @@
 const websiteEdits = document.getElementById("websiteEdits");
+const galleryPhotoUpload = document.getElementById("galleryPhotoUpload");
 const changesSaved = document.getElementById("changesSaved");
 
 function submissionSuccess(){
