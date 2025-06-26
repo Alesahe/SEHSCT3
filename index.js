@@ -173,21 +173,6 @@ app.post("/loggedIn", async function(req, res) {
   res.json([loggedIn, userAdmin]);
 })
 
-<<<<<<< Updated upstream
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'public/userUploads/images/')
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname);
-//   }
-// });
-// const upload = multer({ storage: storage });
-=======
-// html editing moment
-
->>>>>>> Stashed changes
-
 // for image uploading
 const upload = multer({ dest: "public/userUploads/images"}); // Specify upload directory
 
