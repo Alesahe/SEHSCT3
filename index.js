@@ -173,10 +173,6 @@ app.post("/loggedIn", async function(req, res) {
   res.json([loggedIn, userAdmin]);
 })
 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
 // for admin edits
 app.post("/retrieveHTML", async function(req, res) {
   db.all("SELECT * FROM pages", function(err, rows) {
@@ -192,18 +188,6 @@ app.post("/changeHTML", async function(req, res) {
   })
 })
 
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'public/userUploads/images/')
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname);
-//   }
-// });
-// const upload = multer({ storage: storage });
-
->>>>>>> Stashed changes
->>>>>>> adminDB
 // for image uploading
 const upload = multer({ dest: "public/userUploads/images"}); // Specify upload directory
 var uploadedArray = [];
