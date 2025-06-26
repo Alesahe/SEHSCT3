@@ -14,3 +14,6 @@ CREATE TABLE feedback(id INTEGER PRIMARY KEY autoincrement, username TEXT NOT NU
 
 -- ALTER TABLE users
 -- DROP COLUMN email;
+
+CREATE TABLE uploadedPhotos(id INTEGER PRIMARY KEY autoincrement, name TEXT NOT NULL);
+INSERT INTO uploadedPhotos (name) VALUES ("f3b3b08f4773ea17a6c075f99de09064");

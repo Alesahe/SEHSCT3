@@ -173,23 +173,46 @@ app.post("/loggedIn", async function(req, res) {
   res.json([loggedIn, userAdmin]);
 })
 
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'public/userUploads/images/')
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname);
-//   }
-// });
-// const upload = multer({ storage: storage });
-
 // for image uploading
 const upload = multer({ dest: "public/userUploads/images"}); // Specify upload directory
+var uploadedArray = [];
+var strUploads;
 
 app.post("/uploadPhoto", upload.single("image"), async function (req, res){
-  console.log(req.file);
+  // console.log(req.file.filename);
+  // console.log(req.file);
+  uploadedArray.push(req.file.filename);
+  // console.log(uploadedArray);
 
+  // strUploads = JSON.stringify(uploadedArray);
+  // res.json(strUploads);
+  // res.json(uploadedArray);
+
+  db.all("INSERT INTO uploadedPhotos(name) VALUES (?)", [`${req.file.filename}`], function(err) {
+    if (err) console.log(err);
+  })
+
+  window.location.href = "/admin";
+  res.json();
 })
+
+app.post("/retrievePhotos", async function (req, res){
+  db.all("SELECT * FROM uploadedPhotos", function(err, rows) {
+      if (err) console.log(err);
+      let photoFiles = [];
+      for (let i=0; i<rows.length; i++){
+        photoFiles.push(rows[i].name);
+      }
+      
+      // console.log(allReviews);
+      res.json(photoFiles);
+  })
+})
+
+// app.post("/addPhotoLS", async function (req, res) {
+//   console.log("i estixsat");
+//   res.json(strUploads);
+// })
 
 app.listen(port, () => {
     console.log(`Server running at http://${hostname}:${port}/`);

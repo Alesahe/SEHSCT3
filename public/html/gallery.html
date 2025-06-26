@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/gallery.css">
 </head>
-<body onload="loginButtonDisplay()">
+<body onload="loginButtonDisplay(); loadUploads()">
     <div id="navbar" class="topnav">
         <a href="/" id="home">Home</a>
         <a href="families" id="families" aria-label="families">Families</a>
@@ -51,8 +51,11 @@
             <img src="../userUploads/images/p4.jpg" style="width:100%">
         </div>
 
-        <div class="mySlides">
+        <!-- <div class="mySlides">
             <img src="../userUploads/images/f3b3b08f4773ea17a6c075f99de09064" style="width:100%">
+        </div> -->
+        <div id="addUploads">
+            <!-- new photo uploads here -->
         </div>
             
         <a class="prev" onclick="plusSlides(-1)">❮</a>

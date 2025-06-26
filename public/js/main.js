@@ -43,9 +43,9 @@ async function loginButtonDisplay(){
             throw new Error("login button displaying went wrong ;-;");
         };
 
-        console.log("LI:" + loggedIn);
-        console.log("UA:" + userAdmin);
-        console.log(LIUA);
+        // console.log("LI:" + loggedIn);
+        // console.log("UA:" + userAdmin);
+        // console.log(LIUA);
     })
 
 

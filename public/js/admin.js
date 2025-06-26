@@ -1,5 +1,5 @@
 const websiteEdits = document.getElementById("websiteEdits");
-const galleryPhotoUpload = document.getElementById("galleryPhotoUpload");
+// const galleryPhotoUpload = document.getElementById("galleryPhotoUpload");
 const changesSaved = document.getElementById("changesSaved");
 
 function submissionSuccess(){
@@ -27,6 +27,29 @@ websiteEdits.addEventListener("submit", async function(event) {
     console.log(welcomePageText);
     console.log(localStorage.getItem("welcomePageText"));
 });
+
+// galleryPhotoUpload.addEventListener("submit", async function(event) {
+//     event.preventDefault();
+
+//     // const photoInput = document.getElementById("photoInput").file.filename;
+
+//     console.log("ahusd");
+//     await fetch("/addPhotoLS", {
+//         method: "POST",
+//         body: JSON.stringify ({}),
+//         headers: {
+//             "Content-type": "application/json; charset=UTF-8"
+//         }
+//     })
+//     .then(async function(response){
+//         const strUploads = await response.json();
+//         // console.log("hello");
+//         if(!response.ok){
+//             throw new Error("admin photo upload didnt work");
+//         };
+//         // localStorage.setItem("displayPhotos", strUploads);
+//     })
+// });
 
 function loadInputText(){
     document.getElementById("welcomePageText").value = localStorage.getItem("welcomePageText");
