@@ -34,6 +34,7 @@
         <div class="hero-content halfbox whiteGradient">
             <h3 class="vertMiddle">Admin Page</h3>
             <p> if you want newlines, enter them as /n in the textboxes for now :/ </p>
+
             <form id="websiteEdits">
                 <p>Edit your welcome page text:</p>
                 <div class="inputField">
@@ -107,7 +108,9 @@
             <form action="/uploadPhoto" method="POST" id="galleryPhotoUpload" enctype="multipart/form-data"> 
                 <p> Add photos to your gallery: </p>
                 <input type="file" name="image" accept="image/*" id="photoInput"> 
-                <br><br>
+                <br>
+                <p id="photoSaved" > Photo was uploaded. </p>
+                <br>
                 <button type="submit" id="submitChanges"> Upload new photo </button>
             </form>
         </div>

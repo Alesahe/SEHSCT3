@@ -1,10 +1,15 @@
 const websiteEdits = document.getElementById("websiteEdits");
-// const galleryPhotoUpload = document.getElementById("galleryPhotoUpload");
+const galleryPhotoUpload = document.getElementById("galleryPhotoUpload");
 const changesSaved = document.getElementById("changesSaved");
+// const photoSaved = document.getElementById("photoSaved");
 
 function submissionSuccess(){
     changesSaved.style.display = "block";
 }
+
+// function photoSubmissionSuccess(){
+//     photoSaved.style.display = "block";
+// }
 
 websiteEdits.addEventListener("submit", async function(event) {
     event.preventDefault();
@@ -28,6 +33,10 @@ websiteEdits.addEventListener("submit", async function(event) {
     console.log(localStorage.getItem("welcomePageText"));
 });
 
+galleryPhotoUpload.addEventListener("submit", async function(event) {
+    // window.location.href = "http://localhost:5500/admin";
+    photoSubmissionSuccess();
+});
 // galleryPhotoUpload.addEventListener("submit", async function(event) {
 //     event.preventDefault();
 

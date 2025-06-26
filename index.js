@@ -72,9 +72,9 @@ app.get("/feedback", function (req, res) {
 //admin access
 app.get("/admin", function (req, res){
   if (loggedIn && userAdmin) { //  || req.session.user.username == ""
-      res.sendFile(path.join(__dirname, "public/html/admin.html"));
+    res.sendFile(path.join(__dirname, "public/html/admin.html"));
   } else {
-    return res.status(403).send("Forbidden Page.");
+    res.redirect('/login');
   }
 });
 
@@ -192,7 +192,8 @@ app.post("/uploadPhoto", upload.single("image"), async function (req, res){
     if (err) console.log(err);
   })
 
-  window.location.href = "/admin";
+  res.redirect("/gallery");
+  // res.redirect("/admin");
   res.json();
 })
 

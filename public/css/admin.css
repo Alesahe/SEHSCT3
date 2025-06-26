@@ -10,6 +10,18 @@
     background-color: var(--light-green);
 }
 
+#photoSaved {
+    width: 300px;
+    margin: auto;
+    display:none;
+    font-size: 15px;
+    border: solid var(--bright-green) 2px;
+    color: var(--bright-green);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--light-green);
+}
+
 
 .hero {
     font-size: 20px;
