@@ -177,12 +177,15 @@ app.post("/loggedIn", async function(req, res) {
 app.post("/retrieveHTML", async function(req, res) {
   db.all("SELECT * FROM pages", function(err, rows) {
     if (err) console.log(err);
+    // console.log([rows[0].aboutMeText, rows[0].openingHoursText, rows[0].ratioText, rows[0].resumeText, rows[0].welcomePageText]);
+    // const HTMLContent = [rows[0].aboutMeText, rows[0].openingHoursText, rows[0].ratioText, rows[0].resumeText, rows[0].welcomePageText];
     res.json([rows[0].aboutMeText, rows[0].openingHoursText, rows[0].ratioText, rows[0].resumeText, rows[0].welcomePageText]);
+    // res.json(HTMLContent);
   })
 })
 
 app.post("/changeHTML", async function(req, res) {
-  db.all("[]", function(err, rows) {
+  db.all("UPDATE pages SET aboutMeText=?, openingHoursText=?, ratioText=?, resumeText=?,welcomePageText=?", [`${req.body.aboutMeText}`, `${req.body.openingHoursText}`, `${req.body.ratioText}`, `${req.body.resumeText}`, `${req.body.welcomePageText}`],function(err, rows) {
     if (err) console.log(err);
     res.json("it worked i think");
   })

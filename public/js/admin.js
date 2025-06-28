@@ -21,16 +21,37 @@ websiteEdits.addEventListener("submit", async function(event) {
     var openingHoursText = document.getElementById("openingHoursText").value;
     var ratioText = document.getElementById("ratioText").value;
 
-    localStorage.setItem("welcomePageText", welcomePageText);
-    localStorage.setItem("aboutMeText", aboutMeText);
-    localStorage.setItem("resumeText", resumeText);
-    localStorage.setItem("openingHoursText", openingHoursText);
-    localStorage.setItem("ratioText", ratioText);
+    await fetch("/changeHTML", {
+        method: "POST",
+        body: JSON.stringify ({
+            welcomePageText: welcomePageText,
+            aboutMeText: aboutMeText,
+            resumeText: resumeText,
+            openingHoursText: openingHoursText,
+            ratioText: ratioText
+        }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    .then(async function(response){
+        if(!response.ok){
+            throw new Error("update html post request didnt work");
+        };
+        // console.log("html post request response here");
+        return await response;
+    })
+
+    // localStorage.setItem("welcomePageText", welcomePageText);
+    // localStorage.setItem("aboutMeText", aboutMeText);
+    // localStorage.setItem("resumeText", resumeText);
+    // localStorage.setItem("openingHoursText", openingHoursText);
+    // localStorage.setItem("ratioText", ratioText);
 
     //it worked!!
     submissionSuccess();
-    console.log(welcomePageText);
-    console.log(localStorage.getItem("welcomePageText"));
+    // console.log(welcomePageText);
+    // console.log(localStorage.getItem("welcomePageText"));
 });
 
 galleryPhotoUpload.addEventListener("submit", async function(event) {
