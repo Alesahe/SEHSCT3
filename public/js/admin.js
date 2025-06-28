@@ -81,12 +81,34 @@ galleryPhotoUpload.addEventListener("submit", async function(event) {
 //     })
 // });
 
-function loadInputText(){
-    document.getElementById("welcomePageText").value = localStorage.getItem("welcomePageText");
-    document.getElementById("aboutMeText").value = localStorage.getItem("aboutMeText");
-    document.getElementById("resumeText").value = localStorage.getItem("resumeText");
-    document.getElementById("openingHoursText").value = localStorage.getItem("openingHoursText");
-    document.getElementById("ratioText").value = localStorage.getItem("ratioText");
+async function loadInputText(){
+    // document.getElementById("welcomePageText").value = localStorage.getItem("welcomePageText");
+    // document.getElementById("aboutMeText").value = localStorage.getItem("aboutMeText");
+    // document.getElementById("resumeText").value = localStorage.getItem("resumeText");
+    // document.getElementById("openingHoursText").value = localStorage.getItem("openingHoursText");
+    // document.getElementById("ratioText").value = localStorage.getItem("ratioText");
+
+    await fetch("/retrieveHTML", {
+        method: "POST",
+        body: JSON.stringify ({}),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    .then(async function(response){
+        if(!response.ok){
+            throw new Error("retrieve html post request didnt work");
+        };
+        
+        textContent = await response.json();
+        // console.log(textContent);
+        // console.log(textContent[0]);
+    })
+    document.getElementById("welcomePageText").innerHTML = textContent[4];
+    document.getElementById("aboutMeText").innerHTML = textContent[0];
+    document.getElementById("resumeText").innerHTML = textContent[3];
+    document.getElementById("openingHoursText").innerHTML = textContent[1];
+    document.getElementById("ratioText").innerHTML = textContent[2];
 
     // console.log(welcomePageText);
     // console.log(localStorage.getItem("welcomePageText"));
