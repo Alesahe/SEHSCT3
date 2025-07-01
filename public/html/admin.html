@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Vivid Hills Family Day Care website.">
     <title> Vivid Hills FDC </title>
     <link rel="icon" href="../favicon.png" type="image/icon type">
     <link rel="stylesheet" href="../css/root.css">
@@ -33,7 +34,6 @@
     <section class="wrapper hero" id="BGBox">
         <div class="hero-content halfbox whiteGradient">
             <h3 class="vertMiddle">Admin Page</h3>
-            <p> if you want newlines, enter them as /n in the textboxes for now :/ </p>
 
             <form id="websiteEdits">
                 <p>Edit your welcome page text:</p>
@@ -107,12 +107,13 @@
 
             <form action="/uploadPhoto" method="POST" id="galleryPhotoUpload" enctype="multipart/form-data"> 
                 <p> Add photos to your gallery: </p>
-                <input type="file" name="image" accept="image/*" id="photoInput"> 
+                <input type="file" name="image" accept="image/*" id="photoInput" style="width:100%;"> </input>
                 <br>
                 <p id="photoSaved" > Photo was uploaded. </p>
                 <br>
-                <button type="submit" id="submitChanges"> Upload new photo </button>
+                <button type="submit" id="submitChanges"> Upload New Photo </button>
             </form>
+            <br>
         </div>
     </section>
 

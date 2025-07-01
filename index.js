@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('trust proxy', 1);
 app.use(session({
-  secret: 'your-secret-key', // environment variables???? thisisnt' good lol
+  secret: 'your-secret-key',
   resave: false,
   saveUninitialized: true,
   cookie: {
