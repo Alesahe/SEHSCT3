@@ -2,7 +2,7 @@
 let stars = document.getElementsByClassName("star");
 let rating = document.getElementById("rating");
 
-// Funtion to update rating
+// rating mechanism (/feedback)
 function updateColour(n) {
     remove();
     for (let i = 0; i < n; i++) {
@@ -15,7 +15,8 @@ function updateColour(n) {
         rating.innerText = n;
     }
 }
-// To remove the pre-applied styling
+
+// remove preexisting styles
 function remove() {
     let i = 0;
     while (i < 5) {

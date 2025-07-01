@@ -1,10 +1,16 @@
+/* default elements */
+h1 box-icon {
+    margin-top: 50px;
+    color: var(--text-colour);
+}
+
+/* classes */
 .row {
     width: 75%;
     margin: auto;
 }
 
 .column {
-    /* margin: 0 30px; */
     box-sizing: border-box;
     float: left;
     /* width: 25%; */
@@ -20,18 +26,13 @@
 }
 
 .partBox {
-    /* width: 0%; */
     height: 230px;
     background-color: var(--blue);
     margin: auto;
     border-radius: 10px;
 }
 
-h1 box-icon {
-    margin-top: 50px;
-    color: var(--text-colour);
-}
-
+/* conditionals */
 @media screen and (max-width: 1000px) {
     .column {
         width: 100%;

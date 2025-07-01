@@ -1,3 +1,4 @@
+/* individual elements */
 #welcomePage {
     background-image: url(../images/bg.jpg);
 }
@@ -6,10 +7,7 @@
     background-color: var(--red);
 }
 
-/* #openingHours {
-    background-color: var(--red);
-} */
-
+/* default elements */
 h1 {
     margin-left: 50px;
     margin-top: 50px;
@@ -22,10 +20,10 @@ p {
     font-size: 20px;
 }
 
+/* classes */
 .halfTextBox {
     width: 80%;
     max-width: 600px;
-    /* height:  */
 }
 
 .row {
@@ -44,11 +42,9 @@ p {
     float: left;
     width: 50%;
     padding: 10px;
-    /* border-radius: 10px; */
 }
 
 .partBox {
-    /* width: 0%; */
     height: 400px;
     background-color: var(--red);
     margin: auto;
@@ -57,7 +53,6 @@ p {
 }
 
 .partBox h1 {
-    /* margin-left: 0; */
     margin: 0;
 }
 
@@ -65,6 +60,7 @@ p {
     margin-left: 0;
 }
 
+/* conditionals */
 @media screen and (max-width: 1200px) {
     .column {
         width: 100%;

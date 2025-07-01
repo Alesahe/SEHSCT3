@@ -1,26 +1,25 @@
 const websiteEdits = document.getElementById("websiteEdits");
 const galleryPhotoUpload = document.getElementById("galleryPhotoUpload");
 const changesSaved = document.getElementById("changesSaved");
-// const photoSaved = document.getElementById("photoSaved");
 
+// shows success message
 function submissionSuccess(){
     changesSaved.style.display = "block";
 }
 
-// function photoSubmissionSuccess(){
-//     photoSaved.style.display = "block";
-// }
-
+// changes HTML after form submission
 websiteEdits.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    // yomp chomp form input
+    // form input
     var welcomePageText = document.getElementById("welcomePageText").value;
     var aboutMeText = document.getElementById("aboutMeText").value;
     var resumeText = document.getElementById("resumeText").value;
     var openingHoursText = document.getElementById("openingHoursText").value;
     var ratioText = document.getElementById("ratioText").value;
 
+    // post request
+    // all post request code adapted from https://www.geeksforgeeks.org/how-to-send-an-http-post-request-in-js/
     await fetch("/changeHTML", {
         method: "POST",
         body: JSON.stringify ({
@@ -38,56 +37,16 @@ websiteEdits.addEventListener("submit", async function(event) {
         if(!response.ok){
             throw new Error("update html post request didnt work");
         };
-        // console.log("html post request response here");
         return await response;
     })
 
-    // localStorage.setItem("welcomePageText", welcomePageText);
-    // localStorage.setItem("aboutMeText", aboutMeText);
-    // localStorage.setItem("resumeText", resumeText);
-    // localStorage.setItem("openingHoursText", openingHoursText);
-    // localStorage.setItem("ratioText", ratioText);
-
-    //it worked!!
+    // success message
     submissionSuccess();
-    // console.log(welcomePageText);
-    // console.log(localStorage.getItem("welcomePageText"));
 });
 
-galleryPhotoUpload.addEventListener("submit", async function(event) {
-    // window.location.href = "http://localhost:5500/admin";
-    photoSubmissionSuccess();
-});
-// galleryPhotoUpload.addEventListener("submit", async function(event) {
-//     event.preventDefault();
-
-//     // const photoInput = document.getElementById("photoInput").file.filename;
-
-//     console.log("ahusd");
-//     await fetch("/addPhotoLS", {
-//         method: "POST",
-//         body: JSON.stringify ({}),
-//         headers: {
-//             "Content-type": "application/json; charset=UTF-8"
-//         }
-//     })
-//     .then(async function(response){
-//         const strUploads = await response.json();
-//         // console.log("hello");
-//         if(!response.ok){
-//             throw new Error("admin photo upload didnt work");
-//         };
-//         // localStorage.setItem("displayPhotos", strUploads);
-//     })
-// });
-
+// load text from database
 async function loadInputText(){
-    // document.getElementById("welcomePageText").value = localStorage.getItem("welcomePageText");
-    // document.getElementById("aboutMeText").value = localStorage.getItem("aboutMeText");
-    // document.getElementById("resumeText").value = localStorage.getItem("resumeText");
-    // document.getElementById("openingHoursText").value = localStorage.getItem("openingHoursText");
-    // document.getElementById("ratioText").value = localStorage.getItem("ratioText");
-
+    // post request
     await fetch("/retrieveHTML", {
         method: "POST",
         body: JSON.stringify ({}),
@@ -101,15 +60,12 @@ async function loadInputText(){
         };
         
         textContent = await response.json();
-        // console.log(textContent);
-        // console.log(textContent[0]);
     })
+
+    // alter element content
     document.getElementById("welcomePageText").innerHTML = textContent[4];
     document.getElementById("aboutMeText").innerHTML = textContent[0];
     document.getElementById("resumeText").innerHTML = textContent[3];
     document.getElementById("openingHoursText").innerHTML = textContent[1];
     document.getElementById("ratioText").innerHTML = textContent[2];
-
-    // console.log(welcomePageText);
-    // console.log(localStorage.getItem("welcomePageText"));
 }

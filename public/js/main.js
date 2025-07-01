@@ -6,12 +6,12 @@ const feedbackButton = document.getElementById("feedbackButton");
 const logoutButton = document.getElementById("logoutButton");
 const adminButton = document.getElementById("adminButton");
 
+// display the right buttons if user is logged in
 document.addEventListener("DOMContentLoaded", function(event) {
     loginButtonDisplay();
 });
 
-// document.onload()
-
+// displaying logged in buttons
 function LIButton(){
     registerButton.style.display = "none";
     loginButton.style.display = "none";
@@ -20,6 +20,7 @@ function LIButton(){
     if (userAdmin) adminButton.style.display = "block";
 }
 
+// displaying logged out buttons
 function LOButton(){
     registerButton.style.display = "block";
     loginButton.style.display = "block";
@@ -27,7 +28,9 @@ function LOButton(){
     logoutButton.style.display = "none";
 }
 
+// retrieve session details to display correct buttons
 async function loginButtonDisplay(){
+    // post request
     await fetch("/loggedIn", {
         method: "POST",
         body: JSON.stringify ({}),
@@ -42,14 +45,9 @@ async function loginButtonDisplay(){
         if(!response.ok){
             throw new Error("login button displaying went wrong ;-;");
         };
-
-        // console.log("LI:" + loggedIn);
-        // console.log("UA:" + userAdmin);
-        // console.log(LIUA);
     })
 
-
+    // calls corresponding function
     if (loggedIn) LIButton();
     else LOButton();
-    console.log("login button display happened");
 }

@@ -6,8 +6,6 @@ import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
 import session from 'express-session';
 import multer from 'multer';
-// import { LOButton } from "../SEHSCT3/public/js/main.js";
-// import 'boxicons';
 
 const port = 5500;
 const hostname = '127.0.0.1';
@@ -61,7 +59,6 @@ app.get("/signup", function (req, res) {
 
 app.get("/feedback", function (req, res) {
   if (req.session.user) {
-    // console.log("HERE");
     res.sendFile(path.join(__dirname, "public/html/feedback.html"));
   } else {
     console.log(req.session.user);
@@ -71,7 +68,7 @@ app.get("/feedback", function (req, res) {
 
 //admin access
 app.get("/admin", function (req, res){
-  if (loggedIn && userAdmin) { //  || req.session.user.username == ""
+  if (loggedIn && userAdmin) {
     res.sendFile(path.join(__dirname, "public/html/admin.html"));
   } else {
     res.redirect('/login');
@@ -81,13 +78,13 @@ app.get("/admin", function (req, res){
 
 // login system
 async function hashInput (val) {
-  // const saltRounds = 10;
   const salt = await bcrypt.genSalt(10);
   const hashedPW = await bcrypt.hash(val, salt);
   
   return hashedPW;
 }
 
+// register user
 app.post("/registerUser", async function(req, res) {
   req.body.firstname = await hashInput(req.body.firstname);
   req.body.lastname = await hashInput(req.body.lastname);
@@ -98,6 +95,7 @@ app.post("/registerUser", async function(req, res) {
   })
 })
 
+// check for duplicate users
 app.post("/sameUser", async function(req, res) {
   db.all("SELECT * FROM users WHERE username like ?", [`%${req.body.username}%`], function (err, rows) {
     if (err) throw new Error (err);
@@ -106,34 +104,28 @@ app.post("/sameUser", async function(req, res) {
   })
 })
 
+// login user
 app.post("/loginUser", async function(req, res) {
-  // req.body.password = await hashInput(req.body.password);
-  // console.log(req.body.password);
   db.all("SELECT * FROM users WHERE username like ?", [`%${req.body.username}%`], function(err, rows) {
       if (err) console.log(err);
       for (let i=0; i<rows.length; i++){
         if (bcrypt.compare(req.body.password, rows[i].password)) {
-          // console.log("worked");
           loggedIn = true;
           req.session.user = { username: req.body.username };
+          
+          // authorisation
           if (req.session.user.username =="ale" || req.session.user.username=="MsChen" || req.session.user.username=="JingXiao") userAdmin = true;
           console.log(req.session.user);
+
           res.json(req.body.username);
           return;
         }
       }
-      // if (rows.length>0){
-      //   console.log(rows.length());
-      //   res.json(req.body.username);
-      // }
-      
       res.json(null);
   })
-
-  // req.session.userId = 'user123';
-  // res.send('Logged in');
 })
 
+// user logout (destroy session)
 app.get("/logoutUser", (req, res) => {
   loggedIn = false;
   userAdmin = false;
@@ -147,13 +139,13 @@ app.get("/logoutUser", (req, res) => {
 
 // commenting/feedback mechanism
 app.post("/giveFeedback", async function(req, res) {
-  // console.log(req.session.user.username);
   db.all("INSERT INTO feedback(username, starRating, comments) VALUES(?, ?, ?)", [`${req.session.user.username}`, `${req.body.starRating}`, `${req.body.feedback}`], function(err) {
     if (err) console.log(err);
     res.json(req.body.starRating);
   })
 })
 
+// retrieve all feedback
 app.post("/retrieveReviews", async function(req, res) {
   db.all("SELECT * FROM feedback", function(err, rows) {
       if (err) console.log(err);
@@ -161,29 +153,24 @@ app.post("/retrieveReviews", async function(req, res) {
       for (let i=0; i<rows.length; i++){
         allReviews.push([rows[i].username, rows[i].starRating, rows[i].comments]);
       }
-      
-      // console.log(allReviews);
       res.json(allReviews);
   })
 })
 
-// for button display
+// logged in button display
 app.post("/loggedIn", async function(req, res) {
-  // console.log([loggedIn, userAdmin]);
   res.json([loggedIn, userAdmin]);
 })
 
-// for admin edits
+// display HTML to edit for /admin
 app.post("/retrieveHTML", async function(req, res) {
   db.all("SELECT * FROM pages", function(err, rows) {
     if (err) console.log(err);
-    // console.log([rows[0].aboutMeText, rows[0].openingHoursText, rows[0].ratioText, rows[0].resumeText, rows[0].welcomePageText]);
-    // const HTMLContent = [rows[0].aboutMeText, rows[0].openingHoursText, rows[0].ratioText, rows[0].resumeText, rows[0].welcomePageText];
     res.json([rows[0].aboutMeText, rows[0].openingHoursText, rows[0].ratioText, rows[0].resumeText, rows[0].welcomePageText]);
-    // res.json(HTMLContent);
   })
 })
 
+// update HTML - admin edits
 app.post("/changeHTML", async function(req, res) {
   db.all("UPDATE pages SET aboutMeText=?, openingHoursText=?, ratioText=?, resumeText=?,welcomePageText=?", [`${req.body.aboutMeText}`, `${req.body.openingHoursText}`, `${req.body.ratioText}`, `${req.body.resumeText}`, `${req.body.welcomePageText}`],function(err, rows) {
     if (err) console.log(err);
@@ -191,30 +178,24 @@ app.post("/changeHTML", async function(req, res) {
   })
 })
 
-// for image uploading
-const upload = multer({ dest: "public/userUploads/images"}); // Specify upload directory
+// upload images
+const upload = multer({ dest: "public/userUploads/images"}); 
 var uploadedArray = [];
-var strUploads;
 
 app.post("/uploadPhoto", upload.single("image"), async function (req, res){
-  // console.log(req.file.filename);
-  // console.log(req.file);
   uploadedArray.push(req.file.filename);
-  // console.log(uploadedArray);
 
-  // strUploads = JSON.stringify(uploadedArray);
-  // res.json(strUploads);
-  // res.json(uploadedArray);
-
+  // insert saved image names into database
   db.all("INSERT INTO uploadedPhotos(name) VALUES (?)", [`${req.file.filename}`], function(err) {
     if (err) console.log(err);
   })
 
+  // redirect to /gallery
   res.redirect("/gallery");
-  // res.redirect("/admin");
   res.json();
 })
 
+// retrieve photos (/gallery onload)
 app.post("/retrievePhotos", async function (req, res){
   db.all("SELECT * FROM uploadedPhotos", function(err, rows) {
       if (err) console.log(err);
@@ -223,15 +204,9 @@ app.post("/retrievePhotos", async function (req, res){
         photoFiles.push(rows[i].name);
       }
       
-      // console.log(allReviews);
       res.json(photoFiles);
   })
 })
-
-// app.post("/addPhotoLS", async function (req, res) {
-//   console.log("i estixsat");
-//   res.json(strUploads);
-// })
 
 app.listen(port, () => {
     console.log(`Server running at http://${hostname}:${port}/`);

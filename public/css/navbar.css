@@ -1,21 +1,4 @@
-.topnav {
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  /* overflow: auto; */
-  background-color: var(--background-colour);
-  z-index:100;
-}
-
-.topnav a {
-  float:left;
-  display: block;
-  color: var(--text-colour);
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
+/* individual elements */
 #menuContainer {
     background-color: var(--background-colour);
 }
@@ -116,13 +99,30 @@
     background-color: var(--purple);
 }
 
+/* classes */
+.topnav {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: var(--background-colour);
+  z-index:100;
+}
+
+.topnav a {
+  float:left;
+  display: block;
+  color: var(--text-colour);
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
 .topnav .icon {
-    /* font-size: 35px; */
-    /* height: 100%; */
     display: none;
     height: 21px;
 }
 
+/* conditionals */
 @media screen and (max-width: 500px) {
     .topnav a:not(.active) {display: none;}
     .topnav a.icon {
@@ -132,7 +132,6 @@
     
     .topnav.responsive {
         position: relative;
-        /* height: 250px;  */
     }
     .topnav.responsive .icon {
         position: absolute;
@@ -145,7 +144,3 @@
         text-align: left;
     }
 }
-
-/* .content {
-  padding: 16px;
-} */

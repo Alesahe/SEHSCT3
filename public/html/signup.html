@@ -22,14 +22,13 @@
         <a href="javascript:void(0);" id="menuContainer" class="icon" onclick="resizeNavbar()">
             <box-icon name="menu" id="menu" aria-label="burger menu"></box-icon>
         </a>
-        <!-- <a href="signup" id="registerButton" aria-label="register">Register</a> -->
         <a href="login" id="loginButton" aria-label="login">Login</a>
-        <!-- <a href="javascript:void(0);" id="logoutButton" onclick="logout()"> Logout </a> -->
         <a href="logoutUser" id="logoutButton" aria-label="logout"> Logout </a>
         <a href="admin" id="adminButton" aria-label="admin"> Admin </a>
     </div>
     <hr>
 
+    <!-- graphic design copied from https://www.youtube.com/watch?v=bVl5_UdcAy0; some css and html taken-->
      <section class="hero" id="BGBox">
         <div class="hero-content halfbox whiteGradient">
             <h1 class="vertMiddle"> Register </h1>
@@ -54,13 +53,6 @@
                     </label>
                     <input required pattern="[a-zA-Z0-9._]{3,30}" title="3-30 characters of letters, numbers, dots or underscores are accepted" type="text" name="username" id="usernameInput" placeholder="Username">
                 </div>
-
-                <!-- <div class="inputField">
-                    <label for="emailInput">
-                        <box-icon name="envelope" class="icon" style="color: var(--text-colour);"></box-icon>
-                    </label>
-                    <input required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,30}$" title="only valid email addresses are accepted" type="email" name="email" id="emailInput" placeholder="Email">
-                </div> -->
                 
                 <div class="inputField">
                     <label for="passwordInput">
@@ -69,13 +61,6 @@
                     <input required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{10,30}$" title="All passwords must contain a lowercase letter, a capital letter, a number, a special character and be between 10-30 characters long." type="password" name="password" id="passwordInput" placeholder="Password">
                 </div>
                 
-                <!-- <div class="inputField">
-                    <label for="repeatPasswordInput">
-                        <box-icon name="lock" class="icon" style="color: var(--text-colour);"></box-icon>  
-                    </label>
-                    <input required type="password" name="repeatPassword" id="repeatPasswordInput" placeholder="Repeat Password">
-                </div> -->
-
                 <button type="submit" id="submitButton"> Submit </button>
             </form>
 

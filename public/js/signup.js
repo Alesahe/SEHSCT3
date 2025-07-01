@@ -1,13 +1,14 @@
 const registerForm = document.getElementById("registerForm");
 const userTaken = document.getElementById("userTaken");
 const successMsg = document.getElementById("successMsg");
-// console.log("halaaj sk");
 
+// display error message for duplicate username
 function usernameTaken (){
     userTaken.style.display = "block";
     userTaken.textContent = "Username already taken.";
 }
 
+// display successful registration message
 function registerSuccess(){
     successMsg.style.display = "block";
     successMsg.textContent = "Account was registered.";
@@ -15,19 +16,16 @@ function registerSuccess(){
 
 //signup form submit
 registerForm.addEventListener("submit", async function(event) {
-    // console.log("hello?!!?!?");
     event.preventDefault();
 
-    // yomp chomp form inputs :D
+    // form inputs
     const firstname = document.getElementById("firstnameInput").value;
     const lastname = document.getElementById("lastnameInput").value;
     const username = document.getElementById("usernameInput").value;
-    // const email = document.getElementById("emailInput").value;
     const password = document.getElementById("passwordInput").value;
 
-    // post requests...
+    // post requests
     // code ADAPTED from https://www.geeksforgeeks.org/how-to-send-an-http-post-request-in-js/
-    // check if same username is alr taken
     await fetch("/sameUser", {
         method: "POST",
         body: JSON.stringify ({
@@ -40,19 +38,18 @@ registerForm.addEventListener("submit", async function(event) {
     .then(async function(response){
         if(!response.ok){
             throw new Error("same user went wrong ;-;");
-            // console.log(response);
         };
+
         const numUsers = await response.json();
         if (numUsers>0) usernameTaken();
         else {
-            // register the user
+            // nested post request
             await fetch("/registerUser", {
                 method: "POST",
                 body: JSON.stringify ({
                     firstname: firstname,
                     lastname: lastname,
                     username: username,
-                    // email: hashInput(email),
                     password: password
                 }),
                 headers: {
@@ -63,9 +60,9 @@ registerForm.addEventListener("submit", async function(event) {
                 if(!response.ok){
                     throw new Error("register user went wrong ;-;");
                 };
-                // const checkUsername = await response.json();
                 return await response;
             })
+        
             // reset form data + success message
             registerSuccess();
             registerForm.reset(); 

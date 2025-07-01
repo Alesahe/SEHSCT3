@@ -1,22 +1,7 @@
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// const addUploads = document.getElementById("addUploads");
-// function loadUploads (){
-//   const uploadedPhotos = JSON.parse(localStorage.getItem("displayPhotos"));
-//   for (let i=0; i<uploadedPhotos.length; i++){
-//     const newSlidesDiv = document.createElement("div");
-//     newSlidesDiv.classList.add("mySlides");
-
-//     const newImg = document.createElement("img");
-//     img.src = uploadedPhotos[i];
-//     newImg.style.width = "100%";
-
-//     newSlidesDiv.appendChild(img);
-//     document.getElementById("addUploads").appendChild(newSlidesDiv);
-//   }
-// }
-
+// add retrieved photos to photo gallery
 function displayPhotos(photoFilename){
   console.log("displayphotos");
   const newSlidesDiv = document.createElement("div");
@@ -30,7 +15,9 @@ function displayPhotos(photoFilename){
   document.getElementById("addUploads").appendChild(newSlidesDiv);
 }
 
+// retrieve uploaded photos
 async function loadUploads (){
+  // post request
   await fetch("/retrievePhotos", {
       method: "POST",
       body: JSON.stringify ({}),
@@ -40,18 +27,18 @@ async function loadUploads (){
   })
   .then(async function(response){
       const photoFiles = await response.json();
-      console.log(photoFiles);
       if(!response.ok){
           throw new Error("photo display no");
       };
 
       for (let i=0; i<photoFiles.length; i++){
         displayPhotos(photoFiles[i]);
-        // console.log(photoFiles[i]);
       }
   })
 }
 
+// photo display mechanisms
+// code adapted from https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }

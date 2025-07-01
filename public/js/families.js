@@ -1,5 +1,6 @@
 const reviewContainer = document.getElementById("reviewContainer");
 
+// returns string of n stars
 function numToStar(n){
     if (n==1) return "★";
     else if (n==2) return "★★";
@@ -8,7 +9,9 @@ function numToStar(n){
     else return "★★★★★";
 }
 
+// displays review from database
 async function displayReviews(){
+    // post request
     await fetch("/retrieveReviews", {
         method: "POST",
         body: JSON.stringify ({}),
@@ -22,6 +25,7 @@ async function displayReviews(){
             throw new Error("yikes, displaying results went wrong ;-;");
         };
 
+        // display retrieved reviews
         for (let i=0; i<allReviews.length; i++){
             var newReviewBox = document.createElement("div");
             newReviewBox.classList.add("reviewBox");
@@ -37,8 +41,6 @@ async function displayReviews(){
             newReviewBox.appendChild(username);
             newReviewBox.appendChild(comments);
             reviewContainer.appendChild(newReviewBox);
-            // console.log(reviewContainer.innerHTML);
         }
-        // console.log(allReviews);
     })
 }

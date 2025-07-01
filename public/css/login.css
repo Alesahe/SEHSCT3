@@ -1,7 +1,4 @@
-/* #loginButton {
-    display: none;
-} */
-
+/* individual elements */
 #invalidMsg {
     width: 300px;
     margin: auto;
@@ -9,67 +6,9 @@
     font-size: 15px;
     border: solid var(--bright-red) 2px;
     color: var(--bright-red);
-    /* border: solid var(--red) 0px; */
     padding: 5px;
-    /* background-color: var(--red); */
     border-radius: 5px;
     background-color: var(--light-red);
-}
-
-.hero {
-    font-size: 20px;
-    height: 100%;
-    /* min-height: 100%; */
-}
-
-.whiteGradient {
-    /* height: 100%; */
-    min-height: 100%;
-    width: 50%;
-    background-color: var(--pure-white);
-    /* background-image: linear-gradient(to right, var(--background-colour), transparent); */
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.halfbox {
-    width: 40%;
-    text-align: center;
-    /* align-items: center; */
-}
-
-input {
-    font-size: 20px;
-    max-width: 225px;
-    border: solid var(--background-colour) 2px;
-    padding-left: 3px;
-    border-radius: 0 10px 10px 0;
-    background-color: var(--background-colour);
-}
-
-.vertMiddle{
-    margin-top: 20%;
-    margin-bottom: 15px;
-}
-
-.hero box-icon {
-    display: inline-block;
-    flex-shrink: 0;
-    height:100%;
-    /* min-height: 100%; */
-    width:30px;
-    background-color: var(--purple);
-    /* fill: var(--text-colour); */
-    /* color: var(--background-colour); */
-    border-radius: 10px 0 0 10px;
-    /* display: flex; */
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight:500;
-    /* align-items: bottom; */
-    top: 0;
 }
 
 #submitButton {
@@ -80,7 +19,6 @@ input {
     background-color: var(--purple);
     border: 0px;
     border-radius: 30px;
-    /* border-color: var(--grey); */
     border-width: 1px;
 }
 
@@ -97,12 +35,21 @@ input {
     color: var(--dark-purple);
 }
 
+/* default elements */
 body {
     min-height: 100%;
     background-image: url(../images/purplebg.jpg);
     background-size: cover;
     background-position: right;
-    /* overflow: hidden; */
+}
+
+input {
+    font-size: 20px;
+    max-width: 225px;
+    border: solid var(--background-colour) 2px;
+    padding-left: 3px;
+    border-radius: 0 10px 10px 0;
+    background-color: var(--background-colour);
 }
 
 form > div {
@@ -113,14 +60,6 @@ form > div {
 
 form label {
     flex-shrink: 0;
-    /* height: 100%; */
-    /* width: 50% */
-    /* background-color: var(--); */
-    /* line-height: 2; */
-}
-
-.inputField {
-    padding: 5px;
 }
 
 form input:hover {
@@ -132,17 +71,52 @@ form input:focus {
     border: solid var(--purple) 2px;
 }
 
+/* classes */
+.hero {
+    font-size: 20px;
+    height: 100%;
+}
+
+.whiteGradient {
+    min-height: 100%;
+    width: 50%;
+    background-color: var(--pure-white);
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.halfbox {
+    width: 40%;
+    text-align: center;
+}
+
+.vertMiddle{
+    margin-top: 20%;
+    margin-bottom: 15px;
+}
+
+.hero box-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    height:100%;
+    width:30px;
+    background-color: var(--purple);
+    border-radius: 10px 0 0 10px;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight:500;
+    top: 0;
+}
+
+.inputField {
+    padding: 5px;
+}
+
+/* conditionals */
 @media screen and (max-width: 800px) {
     .halfbox {
         width: 100%;
     }
 }
-
-/* @media screen and (min-height: 800px) {
-    .hero {
-        min-height: 100%;
-    }
-    .whiteGradient {
-        min-height: 100%;
-    }
-} */

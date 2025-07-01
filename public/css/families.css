@@ -1,18 +1,24 @@
+/* individual elements */
+#reviewContainer {
+    text-align: center;
+}
+
+#heading {
+    margin: 15px auto;
+    margin-bottom: 20px;
+    max-width: 90vw;
+}
+
+/* default elements */
 body {
     text-align: center;
 }
 
-#reviewContainer {
-    text-align: center;
-    /* margin: auto; */
-    /* align-items: center; */
-}
-
+/* classes */
 .reviewBox {
     display: block;
     width: 70vw;
     margin: 15px auto;
-    /* max-height: 1vh; */
     border: solid var(--yellow) 2px;
     border-radius: 10px;
     color: var(--text-colour);
@@ -23,33 +29,6 @@ body {
     background-color: var(--yellow);
 }
 
-#heading {
-    margin: 15px auto;
-    margin-bottom: 20px;
-    max-width: 90vw;
-}
-
 .vertMiddle{
-    /* margin-top: 20%; */
     margin-bottom: 15px;
-    /* margin-left: 50px; */
-    /* align-items: center; */
 }
-
-/* .column {
-    width: 50%;
-}
-
-#col1 .reviewBox {
-    float: left;
-}
-
-#col2 .reviewBox {
-    float: right;
-} 
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
