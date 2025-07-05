@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('trust proxy', 1);
 app.use(session({
-  secret: 'your-secret-key',
+  secret: 'Key',
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -183,6 +183,12 @@ const upload = multer({ dest: "public/userUploads/images"});
 var uploadedArray = [];
 
 app.post("/uploadPhoto", upload.single("image"), async function (req, res){
+  // if no file is selected
+  if (toString(req.body) == "[object Undefined]") {
+    res.redirect("/admin");
+    return;
+  }
+  
   uploadedArray.push(req.file.filename);
 
   // insert saved image names into database

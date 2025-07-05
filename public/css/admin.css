@@ -1,4 +1,8 @@
 /* individual elements */
+#photoInput {
+    width: 250px !important;
+}
+
 #changesSaved {
     width: 300px;
     margin: auto;
@@ -23,7 +27,6 @@
     background-color: var(--light-green);
 }
 
-
 #submitChanges {
     font-size: 20px;
     margin-top: 10px;
@@ -43,7 +46,6 @@
 /* default elements */
 input {
     font-size: 20px;
-    max-width: 225px;
     border: solid var(--background-colour) 2px;
     padding-left: 3px;
     border-radius: 0 10px 10px 0;

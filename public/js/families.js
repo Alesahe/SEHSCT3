@@ -33,7 +33,7 @@ async function displayReviews(){
             var stars = document.createElement("p");
             stars.innerHTML = numToStar(allReviews[i][1]);
             var username = document.createElement("p");
-            username.innerHTML = allReviews[i][0];
+            username.innerHTML = "User: " + allReviews[i][0];
             var comments = document.createElement("p");
             comments.innerHTML = allReviews[i][2];
 
